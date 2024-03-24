@@ -1,10 +1,19 @@
 package br.edu.ifpb.esperanca.padroes.editais.model;
 
+public class Professor {
 
-public class Professor extends User{
-
+    private Name name;
+    private Password password;
+    private UserName userName;
+    
     public Professor(Name name, Password password, UserName userName) {
-        super(name, password, userName);
+        this.name = name;
+        this.password = password;
+        this.userName = userName;
+    }
+
+    public boolean searchByUserName(String termo){
+        return userName.search(termo);
     }
 
 }

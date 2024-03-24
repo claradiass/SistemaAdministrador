@@ -15,4 +15,9 @@ public class UserName {
         this.userName = userName;
     }
 
+    public boolean search(String termo) {
+        return userName.toLowerCase().contains(termo.toLowerCase());
+    }
+
+
 }
