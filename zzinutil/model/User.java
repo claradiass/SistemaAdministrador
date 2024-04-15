@@ -1,4 +1,4 @@
-package app.src.main.java.sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.model;
+package zzinutil.model;
 
 public class User {
     private Name name;

@@ -1,4 +1,4 @@
-package app.src.main.java.sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.facade;
+package inutil.facade;
 
 import java.util.List;
 

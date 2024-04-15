@@ -1,4 +1,4 @@
-package app.src.main.java.sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.colletions;
+package inutil.colletions;
 
 import java.util.ArrayList;
 import java.util.List;
