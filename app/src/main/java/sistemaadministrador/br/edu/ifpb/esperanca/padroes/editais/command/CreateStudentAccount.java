@@ -6,7 +6,7 @@ import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.manager.Contro
 
 
 
-public class CreateStudentAccount {
+public class CreateStudentAccount implements Command {
     private Controller controller;
 
     public CreateStudentAccount(Controller controller) {
@@ -14,6 +14,13 @@ public class CreateStudentAccount {
     }
 
     public void executeCreateStudentAccount(){
+        
+
+        
+    }
+
+    @Override
+    public void execute() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Nome: ");
@@ -30,8 +37,6 @@ public class CreateStudentAccount {
         String validatingPassword = scanner.nextLine();
 
         controller.createStudentAccount(validatingName, validatingUserName, validatingPassword);
-
-        
     }
 
 

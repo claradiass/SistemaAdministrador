@@ -9,14 +9,15 @@ import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.principal.Stud
 
 
 
-public class DisableStudentAccount {
+public class DisableStudentAccount implements Command{
     private Controller controller;
 
     public DisableStudentAccount(Controller controller) {
         this.controller = controller;
     }
 
-    public void executeDisableStudentAccount(){
+    @Override
+    public void execute() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Digite aqui o nome: ");

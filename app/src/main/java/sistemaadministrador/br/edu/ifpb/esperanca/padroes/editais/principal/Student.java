@@ -21,23 +21,11 @@ public class Student{
     public Boolean searchByUserName(String termo){
         return userName.search(termo);
     }
+    
 
     public boolean exitsUserName(String WriteUserName){
         return userName.exitsUserName(WriteUserName);
     }
-
-    // @Override
-    // public boolean equals(Object o){
-    //     if(this == o) return true;
-    //     if(o == null || o.getClass() != this.getClass()) return false;
-
-    //     Student otherStudent = (Student)o;
-    //     // if (!name.equals(otherStudent.name)) return false;
-    //     // if (!password.equals(otherStudent.password)) return false;
-    //     if (!userName.equals(otherStudent.userName)) return false;
-
-    //     return true;
-    // }
 
 
     @Override

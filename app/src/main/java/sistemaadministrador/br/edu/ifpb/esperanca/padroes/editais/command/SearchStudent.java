@@ -7,14 +7,15 @@ import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.principal.Stud
 
 import java.util.List; 
 
-public class SearchStudent {
+public class SearchStudent implements Command{
     private Controller controller;
 
     public SearchStudent(Controller controller) {
         this.controller = controller;
     }
 
-    public void executeSearchStudent(){
+    @Override
+    public void execute() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Digite aqui: ");

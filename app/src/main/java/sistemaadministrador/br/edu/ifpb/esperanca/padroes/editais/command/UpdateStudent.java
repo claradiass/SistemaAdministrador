@@ -7,14 +7,15 @@ import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.manager.Contro
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.principal.Student;
 
 
-public class UpdateStudent {
+public class UpdateStudent implements Command {
     private Controller controller;
 
     public UpdateStudent(Controller controller) {
         this.controller = controller;
     }
 
-    public void executeUpdateStudent(){
+    @Override
+    public void execute() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Busque pelo nome de usuário: ");

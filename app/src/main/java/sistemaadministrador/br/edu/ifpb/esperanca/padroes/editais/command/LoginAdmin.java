@@ -5,14 +5,15 @@ import java.util.Scanner;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.manager.Controller;
 
 
-public class LoginAdmin {
+public class LoginAdmin implements Command {
     private Controller controller;
 
     public LoginAdmin(Controller controller) {
         this.controller = controller;
     }
 
-    public void executeLoginAdmin(){
+    @Override
+    public void execute() {
         Scanner scanner = new Scanner(System.in);
         boolean loggedIn = false;
 

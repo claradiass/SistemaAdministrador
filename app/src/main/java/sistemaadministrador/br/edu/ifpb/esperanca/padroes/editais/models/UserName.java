@@ -19,11 +19,11 @@ public class UserName {
     }
 
     public boolean search(String termo) {
-        return userName.toLowerCase().contains(termo.toLowerCase());
+        return userName.toLowerCase().contains(termo.toLowerCase()); // verifica se no username contém o termo apresentado
     }
 
     public boolean exitsUserName(String userName){
-        return userName.toLowerCase().equals(userName);
+        return userName.toLowerCase().equals(this.userName.toLowerCase());
     }
 
     public boolean validateUserName(String username){
