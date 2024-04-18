@@ -13,9 +13,4 @@ public class Email {
         Email otherEmail = (Email) o;
         return email.equals(otherEmail.email);
     }
-
-    @Override
-    public int hashCode() {
-        return email.hashCode();
-    }
 }

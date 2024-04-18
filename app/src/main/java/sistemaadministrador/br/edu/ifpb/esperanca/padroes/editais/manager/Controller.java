@@ -30,7 +30,7 @@ public class Controller implements FacadeAdministrator{
         }
 
         Name name = new Name(nome);
-        name.validateName(nome); //validador apenas com null
+        // name.validateName(nome); //validador apenas com null
         Password password = new Password(senha);
         password.validatePassword(senha);
         UserName userName = new UserName(usuario);

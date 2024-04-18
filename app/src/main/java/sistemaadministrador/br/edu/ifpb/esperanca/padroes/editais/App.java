@@ -17,7 +17,7 @@ public class App {
     public void menuPrincipal() {
         Scanner scanner = new Scanner(System.in);
 
-        execute.execute(new LoginAdmin(controller));
+        // execute.execute(new LoginAdmin(controller));
 
         int op = -1;
 
