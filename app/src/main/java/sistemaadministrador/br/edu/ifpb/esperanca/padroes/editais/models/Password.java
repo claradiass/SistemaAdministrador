@@ -4,16 +4,13 @@ public class Password {
     private String password;
 
     public Password(String password) {
+        validatePassword(password);
         this.password = password;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void updatePassword(String password) {
-        if(password == null || password == this.password){
-            System.out.println("Mudança inválida");
+    public void updatePassword(String password) throws IllegalArgumentException {
+        if(validatePassword(password) || password == this.password){
+            throw new IllegalArgumentException("The name cannot be null or equal to the one already existing.");
         }
         this.password = password;
     }
@@ -26,15 +23,26 @@ public class Password {
         return password.equals(otherPassword.password);
     }
 
-    @Override
-    public int hashCode() {
-        return password.hashCode();
-    }
+    public boolean validatePassword(String password)  throws IllegalArgumentException {
+        if(password.length() < 8) {
+            throw new IllegalArgumentException("The password must have 8 digits");
+        }
 
-    public boolean validatePassword(String password){
-        return password != null;
-    }
+        if (!password.matches(".*[a-z].*")) {
+            throw new IllegalArgumentException("The password must contain lowercase letters");
+        }
 
+        if (!password.matches(".*[A-Z].*")) {
+            throw new IllegalArgumentException("The password must contain uppercase letters");
+        }
+        
+
+        if(!password.matches(".*\\d.*")){
+            throw new IllegalArgumentException("The password must contain number");
+        }
+
+        return true;
+    }
 
 
 }
