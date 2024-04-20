@@ -9,9 +9,7 @@ public class Password {
     }
 
     public void updatePassword(String password) throws IllegalArgumentException {
-        if(validatePassword(password) || password == this.password){
-            throw new IllegalArgumentException("The name cannot be null or equal to the one already existing.");
-        }
+        validatePassword(password);
         this.password = password;
     }
 
@@ -24,22 +22,16 @@ public class Password {
     }
 
     public boolean validatePassword(String password)  throws IllegalArgumentException {
-        if(password.length() < 8) {
-            throw new IllegalArgumentException("The password must have 8 digits");
-        }
 
-        if (!password.matches(".*[a-z].*")) {
-            throw new IllegalArgumentException("The password must contain lowercase letters");
+        if (!password.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$")) { 
+            throw new IllegalArgumentException("A password must have at least 8 characters, including at least one lowercase letter, one uppercase letter, and one number.");
         }
-
-        if (!password.matches(".*[A-Z].*")) {
-            throw new IllegalArgumentException("The password must contain uppercase letters");
-        }
-        
-
-        if(!password.matches(".*\\d.*")){
-            throw new IllegalArgumentException("The password must contain number");
-        }
+        // ^ inicio da string, 
+        //(?=.*[a-z]) É um lookahead positivo que verifica se há pelo menos uma letra minúscula em qualquer lugar da string.
+        //(?=.*[A-Z]): É um lookahead positivo que verifica se há pelo menos uma letra maiúscula em qualquer lugar da string.
+        // (?=.*\\d): É um lookahead positivo que verifica se há pelo menos um dígito em qualquer lugar da string.
+        // .{8,}: Corresponde a qualquer caractere (exceto nova linha) pelo menos 8 vezes.
+        // $: Denota o final da string.
 
         return true;
     }

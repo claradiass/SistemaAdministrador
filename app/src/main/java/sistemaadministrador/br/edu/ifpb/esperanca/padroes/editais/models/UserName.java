@@ -4,6 +4,7 @@ public class UserName {
     private String userName;
 
     public UserName(String userName) {
+        validateUserName(userName);
         this.userName = userName;
     }
 
@@ -26,8 +27,10 @@ public class UserName {
         return userName.toLowerCase().equals(this.userName.toLowerCase());
     }
 
-    public boolean validateUserName(String username){
-        return username != null;
+    public void validateUserName(String username) throws IllegalArgumentException {
+        if(username.isEmpty()){
+            throw new IllegalArgumentException("nulo");
+        }
     }
 
     @Override
