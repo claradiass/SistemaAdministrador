@@ -23,12 +23,7 @@ public class Controller implements FacadeAdministrator{
     @Override
     public void createStudentAccount(String nome, String usuario, String senha) {
 
-        boolean exitsUserName = studentsList.exitsUserName(usuario);
-        if (exitsUserName) {
-            System.out.println("O nome de usuário já está em uso. Por favor, escolha outro.");
-            return; // Saímos do método se o nome de usuário estiver em uso
-        }
-
+        studentsList.exitsUserName(usuario);
         Name name = new Name(nome);
         // name.validateName(nome); //validador apenas com null
         Password password = new Password(senha);

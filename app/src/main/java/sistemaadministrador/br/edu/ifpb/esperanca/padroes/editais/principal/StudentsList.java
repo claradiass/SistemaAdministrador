@@ -41,8 +41,10 @@ public class StudentsList {
         return studentsList.get(id);
     }
 
-    public boolean exitsUserName(String userName){
-        return studentsList.stream().anyMatch(student -> student.exitsUserName(userName));
+    public void exitsUserName(String userNameToCheck) throws IllegalArgumentException {
+        if(studentsList.stream().anyMatch(student -> student.exitsUserName(userNameToCheck))){
+            throw new IllegalArgumentException("Username unavailable");
+        }
     }
 
 

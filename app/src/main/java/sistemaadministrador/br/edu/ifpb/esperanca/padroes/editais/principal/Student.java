@@ -23,8 +23,8 @@ public class Student{
     }
     
 
-    public boolean exitsUserName(String WriteUserName){
-        return userName.exitsUserName(WriteUserName);
+    public boolean exitsUserName(String userNameToCheck){
+        return userName.exitsUserName(userNameToCheck);
     }
 
 

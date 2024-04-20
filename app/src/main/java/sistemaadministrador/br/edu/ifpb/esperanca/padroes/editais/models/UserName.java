@@ -23,13 +23,13 @@ public class UserName {
         return userName.toLowerCase().contains(termo.toLowerCase()); // verifica se no username contém o termo apresentado
     }
 
-    public boolean exitsUserName(String userName){
-        return userName.toLowerCase().equals(this.userName.toLowerCase());
+    public boolean exitsUserName(String userNameToCheck) throws IllegalArgumentException {
+        return userName.equalsIgnoreCase(userNameToCheck);
     }
 
     public void validateUserName(String username) throws IllegalArgumentException {
         if(username.isEmpty()){
-            throw new IllegalArgumentException("nulo");
+            throw new IllegalArgumentException("The name cannot be null or existing");
         }
     }
 
