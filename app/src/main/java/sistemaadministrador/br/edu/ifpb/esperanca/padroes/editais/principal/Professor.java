@@ -10,4 +10,8 @@ public class Professor extends User{
         super(name, password, userName);
     }
 
+    public void validateProfessor(String nameToCheck, String userNameToCheck, String passwordToCheck){
+        super.validateUser(nameToCheck, userNameToCheck, passwordToCheck);
+    }
+
 }

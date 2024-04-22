@@ -11,7 +11,6 @@ import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.models.UserNam
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.principal.Administrador;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.principal.Professor;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.principal.Student;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.principal.User;
 
 
 
@@ -29,6 +28,7 @@ public class Controller implements FacadeAdministrator{
         if(newAdministrador.validateEmail(email) && newAdministrador.validatePassword(password)){
             return true;
         }
+        
         return false;
         
     }
@@ -41,12 +41,15 @@ public class Controller implements FacadeAdministrator{
         Password password = new Password(senha);
         
         Student student = new Student(name, password, userName);
+
+        // Validar o nome de usuário
         try {
             student.validateStudent(nome, usuario, senha);
         } catch (IllegalArgumentException e) {
             System.out.println("Erro ao criar conta de estudante: " + e.getMessage());
-            return;
+            return; // Sai do método se a validação falhar
         }
+
         studentsList.addStudent(student);
     }
 
@@ -63,7 +66,6 @@ public class Controller implements FacadeAdministrator{
     @Override
     public void disableStudentAccount(int idStudent) {
         Student selectStudent = studentsList.viewStudent(idStudent);
-        selectStudent.modifyStatusToDisable();
         selectStudent.modifyStatusToDisable();
         System.out.println(selectStudent.verifyStatus());
     }
@@ -86,20 +88,32 @@ public class Controller implements FacadeAdministrator{
         selectStudent.updatePassword(name);
     }
 
+// **************************************************************************************** mudar isso
+
     @Override
     public void createProfessorAccount(String usuario, String nome, String senha) {
         Name name = new Name(nome);
-        Password password = new Password(senha);
         UserName userName = new UserName(usuario);
-
+        Password password = new Password(senha);
+        
         Professor professor = new Professor(name, password, userName);
+
+        // Validar o nome de usuário
+        try {
+            professor.validateProfessor(nome, usuario, senha);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Erro ao criar conta de professor: " + e.getMessage());
+            return; // Sai do método se a validação falhar
+        }
+
         professorsList.addProfessor(professor);
     }
 
     @Override
     public void disableProfessorAccount(int idProfessor) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteProfessorAccount'");
+        Professor selectProfessor = professorsList.viewProfessor(idProfessor);
+        selectProfessor.modifyStatusToDisable();
+        System.out.println(selectProfessor.verifyStatus());
     }
 
     @Override
@@ -113,8 +127,20 @@ public class Controller implements FacadeAdministrator{
     }
 
     @Override
-    public void updateProfessorAccount(int idProfessor) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updateProfessorAccoun'");
+    public void updateProfessorName(int id, String name) {
+        Professor selectProfessor = professorsList.viewProfessor(id);
+        selectProfessor.updateName(name);
+    }
+
+    @Override
+    public void updateProfessorUserName(int id, String name) {
+        Professor selectProfessor = professorsList.viewProfessor(id);
+        selectProfessor.updateUserName(name);
+    }
+
+    @Override
+    public void updateProfessorPassword(int id, String name) {
+        Professor selectProfessor = professorsList.viewProfessor(id);
+        selectProfessor.updatePassword(name);
     }
 }

@@ -18,7 +18,7 @@ public class User {
     }
 
     public void validateUser(String nameToCheck, String userNameToCheck, String passwordToCheck){
-        name.validateName(userNameToCheck);
+        name.validateName(nameToCheck);
         userName.validateUserName(userNameToCheck);
         password.validatePassword(passwordToCheck);
         userName.exitsUserName(userNameToCheck);

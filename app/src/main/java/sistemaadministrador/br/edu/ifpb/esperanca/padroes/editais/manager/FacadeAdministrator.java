@@ -11,6 +11,7 @@ public interface FacadeAdministrator {
 
     void createStudentAccount(String nome, String userName, String senha);//
     void createProfessorAccount(String userName, String nome, String senha);
+
     void disableStudentAccount(int idStudent);//
     void disableProfessorAccount(int idProfessor);
 
@@ -18,10 +19,12 @@ public interface FacadeAdministrator {
     List<Professor> viewProfessorList();
 
     void updateStudentName(int id, String name);//
-    void updateStudentUserName(int id, String name);
-    void updateStudentPassword(int id, String name);
+    void updateStudentUserName(int id, String userName);
+    void updateStudentPassword(int id, String password);
 
-    void updateProfessorAccount(int idProfessor);
+    void updateProfessorName(int id, String name);
+    void updateProfessorUserName(int id, String userName);
+    void updateProfessorPassword(int id, String password);
 
     List<Student> searchStudent(String usuario);//
     void searchProfessor(String usuario);
