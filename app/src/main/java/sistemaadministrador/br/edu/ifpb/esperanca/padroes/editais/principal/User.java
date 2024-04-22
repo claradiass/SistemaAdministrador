@@ -17,32 +17,55 @@ public class User {
         status = true;
     }
 
+    public void validateUser(String nameToCheck, String userNameToCheck, String passwordToCheck){
+        name.validateName(userNameToCheck);
+        userName.validateUserName(userNameToCheck);
+        password.validatePassword(passwordToCheck);
+        userName.exitsUserName(userNameToCheck);
+    }
+
+    public void updateName(String newName){
+        name.updateName(newName);
+    }
+
+    public void updatePassword(String newPassword){
+        password.updatePassword(newPassword);
+    }
+
+    public void updateUserName(String newUserName){
+        userName.updateUserName(newUserName);
+    }
+
+    public boolean exitsUserName(String userNameToCheck){
+        return userName.exitsUserName(userNameToCheck);
+    }
+
     public boolean searchByUserName(String termo){
         return userName.search(termo);
     }
 
-    @Override
-    public String toString() {
-        return name.toString() + " " +  userName.toString();
-    }
-
-    public boolean verifyStatus(UserName userName){
+    public boolean verifyStatus(){
         return status;
     }
 
-    public boolean modifyStatusToDisable(UserName userName){
+    public boolean modifyStatusToDisable(){
         if (!status){
-            System.out.println("Usuário já desativado");
+            System.out.println("User already deactivated");
             return status;
         } 
         return status = false;
     }
 
-    public boolean modifyStatusToActivate(UserName userName){
+    public boolean modifyStatusToActivate(){
         if (status){
-            System.out.println("Usuário já ativo");
+            System.out.println("User already active");
             return status;
         }
         return status = true;
+    }
+
+    @Override
+    public String toString() {
+        return name.toString() + " " +  userName.toString();
     }
 }

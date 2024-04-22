@@ -13,21 +13,11 @@ public class Name {
         this.name = name;
     }
 
-    // public void validateName(String name) throws IllegalArgumentException {
-    //     if(validateEqualName(name) || validateNullName(name)){
-    //         throw new IllegalArgumentException("The name cannot be null or equal to the one already existing.");
-    //     }
-    // }
-
     public void validateName (String name) throws IllegalArgumentException {
-        if(name == null){
+        if(name.isEmpty()){
             throw new IllegalArgumentException("The name cannot be null");
         }
     }
-
-    // public boolean validateEqualName(String name){
-    //     return name.equals(name);
-    // }
 
     @Override
     public String toString() {

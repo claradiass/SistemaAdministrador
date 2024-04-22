@@ -1,8 +1,10 @@
-package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.principal;
+package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.list;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.principal.Student;
 
 
 public class StudentsList {
@@ -14,8 +16,6 @@ public class StudentsList {
         }
     }
     //sempre vai criar uma nova instância
-
-    
 
     public List<Student> viewStudentsList() {
         return studentsList;
@@ -34,10 +34,7 @@ public class StudentsList {
         return studentsList.stream().filter(student -> student.searchByUserName(letter)).collect(Collectors.toList());
     }
 
-    public Student viewStudent(int id){    
-        // if(studentsList.get(id).verifyStatus() == false){
-        //     return studentsList.get(id);
-        // }
+    public Student viewStudent(int id){
         return studentsList.get(id);
     }
 
@@ -46,6 +43,4 @@ public class StudentsList {
             throw new IllegalArgumentException("Username unavailable");
         }
     }
-
-
 }

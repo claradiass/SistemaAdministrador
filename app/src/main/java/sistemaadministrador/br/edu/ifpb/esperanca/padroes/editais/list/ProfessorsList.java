@@ -1,15 +1,19 @@
-package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.principal;
+package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.list;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.principal.Professor;
 
 
 public class ProfessorsList {
     private List<Professor> professorsList;
 
     public ProfessorsList() {
-        this.professorsList = new ArrayList<>();
+        if (professorsList == null) {
+            this.professorsList = new ArrayList<>();
+        }
     }
 
     public List<Professor> viewProfessorsList() {
@@ -29,5 +33,13 @@ public class ProfessorsList {
         return professorsList.stream().filter(professor -> professor.searchByUserName(letter)).collect(Collectors.toList());
     }
 
+    public Professor viewProfessor(int id){
+        return professorsList.get(id);
+    }
 
+    public void exitsUserName(String userNameToCheck) throws IllegalArgumentException {
+        if(professorsList.stream().anyMatch(professor -> professor.exitsUserName(userNameToCheck))){
+            throw new IllegalArgumentException("Username unavailable");
+        }
+    }
 }
