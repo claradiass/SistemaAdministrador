@@ -18,13 +18,16 @@ public interface FacadeAdministrator {
     List<Student> viewStudentList();//
     List<Professor> viewProfessorList();
 
-    void updateStudentName(int id, String name);//
-    void updateStudentUserName(int id, String userName);
-    void updateStudentPassword(int id, String password);
+    // void updateStudentName(int id, String name);//
+    // void updateStudentUserName(int id, String userName);
+    // void updateStudentPassword(int id, String password);
 
-    void updateProfessorName(int id, String name);
-    void updateProfessorUserName(int id, String userName);
-    void updateProfessorPassword(int id, String password);
+    void UpdateStudentAccount(int id, String newName, String newUserName, String newPassword);
+    void UpdateProfessorAccount(int id, String newName, String newUserName, String newPassword);
+
+    // void updateProfessorName(int id, String name);
+    // void updateProfessorUserName(int id, String userName);
+    // void updateProfessorPassword(int id, String password);
 
     List<Student> searchStudent(String usuario);//
     void searchProfessor(String usuario);

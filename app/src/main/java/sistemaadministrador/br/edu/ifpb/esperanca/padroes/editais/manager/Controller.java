@@ -70,23 +70,23 @@ public class Controller implements FacadeAdministrator{
         System.out.println(selectStudent.verifyStatus());
     }
 
-    @Override
-    public void updateStudentName(int id, String name) {
-        Student selectStudent = studentsList.viewStudent(id);
-        selectStudent.updateName(name);
-    }
+    // @Override
+    // public void updateStudentName(int id, String name) {
+    //     Student selectStudent = studentsList.viewStudent(id);
+    //     selectStudent.updateName(name);
+    // }
 
-    @Override
-    public void updateStudentUserName(int id, String name) {
-        Student selectStudent = studentsList.viewStudent(id);
-        selectStudent.updateUserName(name);
-    }
+    // @Override
+    // public void updateStudentUserName(int id, String name) {
+    //     Student selectStudent = studentsList.viewStudent(id);
+    //     selectStudent.updateUserName(name);
+    // }
 
-    @Override
-    public void updateStudentPassword(int id, String name) {
-        Student selectStudent = studentsList.viewStudent(id);
-        selectStudent.updatePassword(name);
-    }
+    // @Override
+    // public void updateStudentPassword(int id, String name) {
+    //     Student selectStudent = studentsList.viewStudent(id);
+    //     selectStudent.updatePassword(name);
+    // }
 
 // **************************************************************************************** mudar isso
 
@@ -126,21 +126,32 @@ public class Controller implements FacadeAdministrator{
         professorsList.searchProfessorByUserName(termo);
     }
 
+    // @Override
+    // public void updateProfessorName(int id, String name) {
+    //     Professor selectProfessor = professorsList.viewProfessor(id);
+    //     selectProfessor.updateName(name);
+    // }
+
+    // @Override
+    // public void updateProfessorUserName(int id, String name) {
+    //     Professor selectProfessor = professorsList.viewProfessor(id);
+    //     selectProfessor.updateUserName(name);
+    // }
+
+    // @Override
+    // public void updateProfessorPassword(int id, String name) {
+    //     Professor selectProfessor = professorsList.viewProfessor(id);
+    //     selectProfessor.updatePassword(name);
+    // }
+
     @Override
-    public void updateProfessorName(int id, String name) {
-        Professor selectProfessor = professorsList.viewProfessor(id);
-        selectProfessor.updateName(name);
+    public void UpdateStudentAccount(int id, String newName, String newUserName, String newPassword) {
+        studentsList.updateStudentAccount(id, newName, newUserName, newPassword);
     }
 
     @Override
-    public void updateProfessorUserName(int id, String name) {
-        Professor selectProfessor = professorsList.viewProfessor(id);
-        selectProfessor.updateUserName(name);
-    }
-
-    @Override
-    public void updateProfessorPassword(int id, String name) {
-        Professor selectProfessor = professorsList.viewProfessor(id);
-        selectProfessor.updatePassword(name);
+    public void UpdateProfessorAccount(int id, String newName, String newUserName, String newPassword) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'UpdateProfessorAccount'");
     }
 }

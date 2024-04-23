@@ -43,4 +43,19 @@ public class StudentsList {
             throw new IllegalArgumentException("Username unavailable");
         }
     }
+
+    public void disableAccount(int id){
+        Student student = viewStudent(id);
+        student.modifyStatusToDisable(); 
+    }
+
+    public void activeAccount(int id){
+        Student student = viewStudent(id);
+        student.modifyStatusToActivate(); 
+    }
+
+    public void updateStudentAccount(int id, String newName, String newUserName, String newPassword){
+        Student student = viewStudent(id);
+        student.updateStudent(newName, newUserName, newPassword);
+    }
 }

@@ -42,4 +42,10 @@ public class ProfessorsList {
             throw new IllegalArgumentException("Username unavailable");
         }
     }
+
+    public void UpdateProfessorAccount(int id, String newName, String newUserName, String newPassword){
+        Professor professor = viewProfessor(id);
+        professor.updateProfessor(newName, newUserName, newPassword);
+    
+    }
 }

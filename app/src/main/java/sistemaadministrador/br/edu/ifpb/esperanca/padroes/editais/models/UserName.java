@@ -13,10 +13,9 @@ public class UserName {
     }
 
     public void updateUserName(String userName) {
-        if(userName == null || userName == this.userName){
-            System.out.println("Mudança inválida");
+        if (!userName.isEmpty()) {
+            this.userName = userName;
         }
-        this.userName = userName;
     }
 
     public boolean search(String termo) {

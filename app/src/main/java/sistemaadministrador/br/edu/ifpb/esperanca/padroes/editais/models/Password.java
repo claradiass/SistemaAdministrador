@@ -9,8 +9,9 @@ public class Password {
     }
 
     public void updatePassword(String password) throws IllegalArgumentException {
-        validatePassword(password);
-        this.password = password;
+        if (!password.isEmpty()) {
+            this.password = password;
+        }
     }
 
     @Override

@@ -8,9 +8,10 @@ public class Name {
         this.name = name;
     }
 
-    public void updateName(String name) throws IllegalArgumentException {
-        validateName(name);
-        this.name = name;
+    public void updateName(String name){
+        if (!name.isEmpty()) {
+            this.name = name;
+        }    
     }
 
     public void validateName (String name) throws IllegalArgumentException {

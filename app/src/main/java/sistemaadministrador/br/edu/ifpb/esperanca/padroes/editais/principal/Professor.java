@@ -14,4 +14,8 @@ public class Professor extends User{
         super.validateUser(nameToCheck, userNameToCheck, passwordToCheck);
     }
 
+    public void updateProfessor(String newName, String newUserName, String newPassword){
+        super.updateUser(newName, newUserName, newPassword);
+    }
+
 }

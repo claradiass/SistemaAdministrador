@@ -13,6 +13,10 @@ public class Student extends User{
     public void validateStudent(String nameToCheck, String userNameToCheck, String passwordToCheck){
         super.validateUser(nameToCheck, userNameToCheck, passwordToCheck);
     }
+
+    public void updateStudent (String newName, String newUserName, String newPassword){
+        super.updateUser(newName, newUserName, newPassword);
+    }
     
 
 }

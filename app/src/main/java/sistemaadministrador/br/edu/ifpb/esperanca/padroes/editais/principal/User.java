@@ -24,17 +24,23 @@ public class User {
         userName.exitsUserName(userNameToCheck);
     }
 
-    public void updateName(String newName){
+    public void updateUser(String newName, String newUserName, String newPassword){
         name.updateName(newName);
-    }
-
-    public void updatePassword(String newPassword){
+        userName.updateUserName(newUserName);
         password.updatePassword(newPassword);
     }
 
-    public void updateUserName(String newUserName){
-        userName.updateUserName(newUserName);
-    }
+    // public void updateName(String newName){
+    //     name.updateName(newName);
+    // }
+
+    // public void updatePassword(String newPassword){
+    //     password.updatePassword(newPassword);
+    // }
+
+    // public void updateUserName(String newUserName){
+    //     userName.updateUserName(newUserName);
+    // }
 
     public boolean exitsUserName(String userNameToCheck){
         return userName.exitsUserName(userNameToCheck);
