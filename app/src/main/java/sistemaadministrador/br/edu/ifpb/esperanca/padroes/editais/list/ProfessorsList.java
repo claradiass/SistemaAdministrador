@@ -48,4 +48,19 @@ public class ProfessorsList {
         professor.updateProfessor(newName, newUserName, newPassword);
     
     }
+
+    public void disableAccount(int id){
+        Professor professor = viewProfessor(id);
+        professor.modifyStatusToDisable(); 
+    }
+
+    public void activeAccount(int id){
+        Professor professor = viewProfessor(id);
+        professor.modifyStatusToActivate(); 
+    }
+
+    public void updateProfessorAccount(int id, String newName, String newUserName, String newPassword){
+        Professor professor = viewProfessor(id);
+        professor.updateProfessor(newName, newUserName, newPassword);
+    }
 }
