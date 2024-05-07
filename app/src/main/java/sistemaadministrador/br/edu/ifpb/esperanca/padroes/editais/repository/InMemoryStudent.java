@@ -2,10 +2,10 @@ package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository;
 
 import java.util.List;
 
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.Student;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.list.StudentsList;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.principal.Student;
 
-public class InMemoryStudent implements UserRepository<Student>{
+public class InMemoryStudent implements DataService<Student>{
     private StudentsList students = new StudentsList();
 
     @Override
@@ -24,8 +24,8 @@ public class InMemoryStudent implements UserRepository<Student>{
     }
 
     @Override
-    public void updateUser(Student student) {
-        // students.updateStudentAccount(0, null, null, null);
+    public void updateUser(int idStudent, Student student) {
+        students.updateStudentAccount(idStudent, student);
     }
 
     @Override
@@ -36,6 +36,11 @@ public class InMemoryStudent implements UserRepository<Student>{
     @Override
     public List<Student> findAll() {
         return students.viewStudentsList();
+    }
+
+    @Override
+    public List<Student> searchAccount(String termo) {
+        return students.searchStudentByUserName(termo);
     }
     
 }

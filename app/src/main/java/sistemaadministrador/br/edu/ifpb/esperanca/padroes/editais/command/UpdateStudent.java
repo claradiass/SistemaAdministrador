@@ -3,14 +3,14 @@ package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command;
 import java.util.List;
 import java.util.Scanner;
 
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.manager.Controller;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.principal.Student;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.Student;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.StudentService;
 
 
 public class UpdateStudent implements Command {
-    private Controller controller;
+    private StudentService controller;
 
-    public UpdateStudent(Controller controller) {
+    public UpdateStudent(StudentService controller) {
         this.controller = controller;
     }
 

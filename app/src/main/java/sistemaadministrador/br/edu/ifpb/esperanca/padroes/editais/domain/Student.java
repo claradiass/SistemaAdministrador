@@ -1,8 +1,8 @@
-package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.principal;
+package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain;
 
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.models.Name;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.models.Password;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.models.UserName;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.models.Name;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.models.Password;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.models.UserName;
 
 public class Student extends User{
 

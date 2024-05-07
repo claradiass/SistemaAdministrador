@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.principal.Student;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.Student;
 
 
 public class StudentsList {
@@ -29,7 +29,6 @@ public class StudentsList {
         studentsList.remove(student);
     }
 
-    //para cada objeto student, verifique se o método search retorna verdadeiro para o termo de pesquisa fornecido
     public List<Student> searchStudentByUserName(String letter){
         return studentsList.stream().filter(student -> student.searchByUserName(letter)).collect(Collectors.toList());
     }
@@ -54,8 +53,10 @@ public class StudentsList {
         student.modifyStatusToActivate(); 
     }
 
-    public void updateStudentAccount(int id, String newName, String newUserName, String newPassword){
-        Student student = viewStudent(id);
-        student.updateStudent(newName, newUserName, newPassword);
+    public void updateStudentAccount(int id, Student student){
+        int searchStudent = studentsList.indexOf(studentsList.get(id));
+        if(searchStudent != -1){
+            studentsList.set(searchStudent, student);
+        }
     }
 }

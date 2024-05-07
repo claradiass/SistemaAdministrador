@@ -1,16 +1,13 @@
 package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command;
 
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.manager.Controller;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.StudentRepository;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.StudentService;
 
 public class ViewStudentList implements Command{
-    private Controller controller;
-
-    public ViewStudentList(Controller controller) {
-        this.controller = controller;
-    }
 
     @Override
     public void execute() {
+        StudentService controller = new StudentService(StudentRepository.getInstance());
         System.out.println("lista abaixo");
         System.out.println(controller.viewStudentList());
     }

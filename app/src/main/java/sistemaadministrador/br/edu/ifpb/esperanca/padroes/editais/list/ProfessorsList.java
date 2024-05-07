@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.principal.Professor;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.Professor;
 
 
 public class ProfessorsList {
@@ -43,12 +43,6 @@ public class ProfessorsList {
         }
     }
 
-    public void UpdateProfessorAccount(int id, String newName, String newUserName, String newPassword){
-        Professor professor = viewProfessor(id);
-        professor.updateProfessor(newName, newUserName, newPassword);
-    
-    }
-
     public void disableAccount(int id){
         Professor professor = viewProfessor(id);
         professor.modifyStatusToDisable(); 
@@ -59,8 +53,10 @@ public class ProfessorsList {
         professor.modifyStatusToActivate(); 
     }
 
-    public void updateProfessorAccount(int id, String newName, String newUserName, String newPassword){
-        Professor professor = viewProfessor(id);
-        professor.updateProfessor(newName, newUserName, newPassword);
+    public void updateProfessorAccount(int id, Professor professor){
+        int searchProfessor = professorsList.indexOf(professorsList.get(id));
+        if(searchProfessor != -1){
+            professorsList.set(searchProfessor, professor);
+        }
     }
 }

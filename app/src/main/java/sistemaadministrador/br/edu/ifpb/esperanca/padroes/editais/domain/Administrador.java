@@ -1,7 +1,7 @@
-package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.principal;
+package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain;
 
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.models.Email;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.models.Password;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.models.Email;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.models.Password;
 
 public class Administrador {
     private static final Email email = new Email("adm@gmail.com"); 

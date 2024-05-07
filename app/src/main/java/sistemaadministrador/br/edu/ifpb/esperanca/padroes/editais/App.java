@@ -8,10 +8,11 @@ import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.LoginA
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.SearchStudent;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.UpdateStudent;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.ViewStudentList;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.manager.Controller;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.StudentRepository;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.StudentService;
 
 public class App {
-    private static Controller controller = new Controller();
+    private static StudentService controller = new StudentService(StudentRepository.getInstance());
     private static CommandExecute execute = new CommandExecute();
     
     public void menuPrincipal() {
@@ -29,10 +30,10 @@ public class App {
 
             switch (op) {
                 case 1:
-                    execute.execute(new CreateStudentAccount(controller));
+                    execute.execute(new CreateStudentAccount());
                     break;
                 case 2:
-                    execute.execute(new ViewStudentList(controller));
+                    execute.execute(new ViewStudentList());
                     break;
                 case 3:
                     execute.execute(new SearchStudent(controller));

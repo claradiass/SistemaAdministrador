@@ -2,11 +2,11 @@ package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository;
 
 import java.util.List;
 
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.Professor;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.list.ProfessorsList;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.principal.Professor;
 
-public class InMemoryProfessor implements UserRepository<Professor>{
-    private ProfessorsList professors = new ProfessorsList();
+public class InMemoryProfessor implements DataService<Professor>{
+    private ProfessorsList professors;
 
     @Override
     public void createAccount(Professor professor) {
@@ -24,8 +24,8 @@ public class InMemoryProfessor implements UserRepository<Professor>{
     }
 
     @Override
-    public void updateUser(Professor professor) {
-        // professors.updateprofessorAccount(0, null, null, null);
+    public void updateUser(int idProfessor, Professor professor) {
+        professors.updateProfessorAccount(idProfessor, professor);
     }
 
     @Override
@@ -36,6 +36,11 @@ public class InMemoryProfessor implements UserRepository<Professor>{
     @Override
     public List<Professor> findAll() {
         return professors.viewProfessorsList();
+    }
+
+    @Override
+    public List<Professor> searchAccount(String termo) {
+        return professors.searchProfessorByUserName(termo);
     }
     
 }

@@ -2,13 +2,14 @@ package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command;
 
 import java.util.Scanner;
 
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.manager.Controller;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.AdministratorService;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.StudentService;
 
 
 public class LoginAdmin implements Command {
-    private Controller controller;
+    private AdministratorService controller;
 
-    public LoginAdmin(Controller controller) {
+    public LoginAdmin(AdministratorService controller) {
         this.controller = controller;
     }
 

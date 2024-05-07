@@ -1,4 +1,4 @@
-package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.models;
+package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.models;
 
 public class Name {
     private String name;

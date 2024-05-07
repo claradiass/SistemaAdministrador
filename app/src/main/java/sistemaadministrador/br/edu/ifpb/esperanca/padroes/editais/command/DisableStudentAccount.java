@@ -3,16 +3,16 @@ package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command;
 import java.util.List;
 import java.util.Scanner;
 
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.manager.Controller;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.principal.Student;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.Student;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.StudentService;
 
 
 
 
 public class DisableStudentAccount implements Command{
-    private Controller controller;
+    private StudentService controller;
 
-    public DisableStudentAccount(Controller controller) {
+    public DisableStudentAccount(StudentService controller) {
         this.controller = controller;
     }
 
