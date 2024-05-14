@@ -12,7 +12,7 @@ public class ProfessorRepository {
         this.dataService = dataService;
     }
 
-    public static ProfessorRepository getInstance(DataService<Professor> dataService){
+    public static ProfessorRepository getInstance(){
         if (instance == null){
             instance = new ProfessorRepository(new InMemoryProfessor());
         }

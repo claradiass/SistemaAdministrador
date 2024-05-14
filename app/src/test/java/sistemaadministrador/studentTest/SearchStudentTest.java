@@ -7,11 +7,18 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class SearchStudentTest {
+
+    @BeforeEach
+    public void setUp() {
+        TestSetup.setup();
+    }
+
     
     @Test
     public void testSearchStudentSuccess() {
@@ -22,7 +29,7 @@ public class SearchStudentTest {
         // Password password = new Password("ana.890EF");
         // students.add(new Student(name, password, username));  
 
-        String searchTerm = "a";
+        String searchTerm = "teste";
         InputStream inputStream = new ByteArrayInputStream(searchTerm.getBytes());
         System.setIn(inputStream);
 
@@ -54,7 +61,7 @@ public class SearchStudentTest {
         System.out.println(output);
 
         // Verificando se a saída contém o nome do aluno esperado
-        assertTrue(output.contains("marcus"));
+        assertTrue(output.contains("teste"));
     }
 
 }

@@ -2,18 +2,13 @@ package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command;
 
 import java.util.Scanner;
 
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.StudentRepository;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.StudentService;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.ProfessorRepository;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.ProfessorService;
 
-
-
-public class CreateStudentAccount implements Command {
-
-    
-
+public class CreateProfessorAccount implements Command{
     @Override
     public void execute() {
-        StudentService controller = new StudentService(StudentRepository.getInstance());
+        ProfessorService controller = new ProfessorService(ProfessorRepository.getInstance());
         
         Scanner scanner = new Scanner(System.in);
 
@@ -30,9 +25,7 @@ public class CreateStudentAccount implements Command {
         System.out.print("Senha: ");
         String validatingPassword = scanner.nextLine();
 
-        controller.createStudentAccount(validatingName, validatingUserName, validatingPassword);
+        controller.createProfessorAccount(validatingName, validatingUserName, validatingPassword);
         System.out.println("Sua conta foi criada com sucesso!");
     }
-
-
 }

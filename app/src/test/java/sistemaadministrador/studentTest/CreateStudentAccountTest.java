@@ -10,13 +10,17 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.CreateStudentAccount;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.StudentRepository;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.FileService;
 
 public class CreateStudentAccountTest {
+
+    @BeforeEach
+    public void setUp() {
+        TestSetup.setup();
+    }
 
     @Test // indica que é métodoé um caso de teste Junit
     public void testCreateStudentAccount() {

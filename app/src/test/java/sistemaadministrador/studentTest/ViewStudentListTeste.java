@@ -7,6 +7,7 @@ import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.ViewStudentList;
@@ -15,11 +16,13 @@ import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.Fil
 
 
 public class ViewStudentListTeste {
-    private StudentRepository studentRepository = StudentRepository.getInstance();
+    @BeforeEach
+    public void setUp() {
+        TestSetup.setup();
+    }
 
     @Test // indica que é métodoé um caso de teste Junit
     public void testViewS() {
-        studentRepository.updateRepository(new FileService());
 
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         // ByteArrayOutputStream outContent = new ByteArrayOutputStream();: Aqui, você está criando um objeto ByteArrayOutputStream. 
@@ -41,14 +44,14 @@ public class ViewStudentListTeste {
 
         ViewStudentList command = new ViewStudentList(); // Criando uma instância 
         command.execute(); // executando o método 
-        System.out.println("oi");
+        System.out.println(outContent);
 
         System.setOut(originalOut);
         //  Esta linha restaura a saída padrão do sistema para o valor original (normalmente o console).
         // Basicamente, restaurar a saída padrão do sistema após o teste é uma medida de precaução para garantir que seu ambiente de teste permaneça limpo e 
         // não afete o funcionamento de outros testes ou do próprio código em execução.
 
-        assertTrue(outContent.toString().contains("ana"));
+        assertTrue(outContent.toString().contains("teste"));
         // Aqui, você está verificando se a saída capturada pelo outContent contém a mensagem de sucesso esperada. Se a mensagem estiver presente na saída, 
         //o teste será considerado bem-sucedido; caso contrário, será considerado falha.
     }
