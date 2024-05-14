@@ -1,6 +1,8 @@
 package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.models;
 
-public class Password {
+import java.io.Serializable;
+
+public class Password implements Serializable{
     private String password;
 
     public Password(String password) {

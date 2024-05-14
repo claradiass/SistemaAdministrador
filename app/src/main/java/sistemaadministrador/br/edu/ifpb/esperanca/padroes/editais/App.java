@@ -8,14 +8,17 @@ import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.LoginA
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.SearchStudent;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.UpdateStudent;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.ViewStudentList;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.FileService;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.StudentRepository;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.StudentService;
 
 public class App {
-    private static StudentService controller = new StudentService(StudentRepository.getInstance());
     private static CommandExecute execute = new CommandExecute();
+    private StudentRepository studentRepository = StudentRepository.getInstance();
     
+
     public void menuPrincipal() {
+        studentRepository.updateRepository(new FileService());
         Scanner scanner = new Scanner(System.in);
 
         // execute.execute(new LoginAdmin(controller));
@@ -36,13 +39,13 @@ public class App {
                     execute.execute(new ViewStudentList());
                     break;
                 case 3:
-                    execute.execute(new SearchStudent(controller));
+                    execute.execute(new SearchStudent());
                     break;
                 case 4:
-                    execute.execute(new DisableStudentAccount(controller));
+                    execute.execute(new DisableStudentAccount());
                     break;
                 case 5:
-                    execute.execute(new UpdateStudent(controller));
+                    execute.execute(new UpdateStudent());
                     break;
                 case 6:
                     System.out.println("Saindo do sistema...");

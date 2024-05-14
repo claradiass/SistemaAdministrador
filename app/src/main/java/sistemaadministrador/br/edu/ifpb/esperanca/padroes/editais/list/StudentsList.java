@@ -1,5 +1,6 @@
 package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.list;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -7,7 +8,8 @@ import java.util.stream.Collectors;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.Student;
 
 
-public class StudentsList {
+public class StudentsList implements Serializable {
+    private static final long serialVersionUID = 1L; // Identificador de versão para serialização
     private List<Student> studentsList;
 
     public StudentsList() {

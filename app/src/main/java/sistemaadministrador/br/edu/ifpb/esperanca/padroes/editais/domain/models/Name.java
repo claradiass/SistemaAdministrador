@@ -1,6 +1,8 @@
 package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.models;
 
-public class Name {
+import java.io.Serializable;
+
+public class Name implements Serializable{
     private String name;
 
     public Name(String name) {

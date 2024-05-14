@@ -1,10 +1,12 @@
 package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain;
 
+import java.io.Serializable;
+
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.models.Name;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.models.Password;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.models.UserName;
 
-public class User {
+public class User implements Serializable {
     private Name name;
     private Password password;
     private UserName userName;
@@ -29,18 +31,6 @@ public class User {
         userName.updateUserName(newUserName);
         password.updatePassword(newPassword);
     }
-
-    // public void updateName(String newName){
-    //     name.updateName(newName);
-    // }
-
-    // public void updatePassword(String newPassword){
-    //     password.updatePassword(newPassword);
-    // }
-
-    // public void updateUserName(String newUserName){
-    //     userName.updateUserName(newUserName);
-    // }
 
     public boolean exitsUserName(String userNameToCheck){
         return userName.exitsUserName(userNameToCheck);

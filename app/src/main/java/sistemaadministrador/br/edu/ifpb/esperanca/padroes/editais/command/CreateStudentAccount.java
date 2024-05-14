@@ -1,5 +1,6 @@
 package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command;
 
+import java.io.PrintStream;
 import java.util.Scanner;
 
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.StudentRepository;
@@ -9,10 +10,14 @@ import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.Studen
 
 public class CreateStudentAccount implements Command {
 
+    
+
     @Override
     public void execute() {
         StudentService controller = new StudentService(StudentRepository.getInstance());
+        
         Scanner scanner = new Scanner(System.in);
+        // PrintStream printStream = System.out;
 
         System.out.print("Nome: ");
         String validatingName = scanner.nextLine();
@@ -28,6 +33,8 @@ public class CreateStudentAccount implements Command {
         String validatingPassword = scanner.nextLine();
 
         controller.createStudentAccount(validatingName, validatingUserName, validatingPassword);
+        // .println("Sua conta foi criada com sucesso!");
+        System.out.println("Sua conta foi criada com sucesso!");
     }
 
 

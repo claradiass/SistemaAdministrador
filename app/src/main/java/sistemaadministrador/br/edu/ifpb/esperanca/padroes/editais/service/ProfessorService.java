@@ -46,11 +46,6 @@ public class ProfessorService implements FacadeProfessor{
         return professorRepository.findAll();
     }
 
-    // @Override
-    // public void searchProfessor(String termo) {
-    //     professorsList.searchProfessorByUserName(termo);
-    // }
-
     @Override
     public void UpdateProfessorAccount(int id, String name, String userName, String password) {
         Name newName = new Name(name);

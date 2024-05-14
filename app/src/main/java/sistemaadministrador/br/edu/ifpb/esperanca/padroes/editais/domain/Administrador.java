@@ -5,7 +5,7 @@ import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.models.
 
 public class Administrador {
     private static final Email email = new Email("adm@gmail.com"); 
-    private static final Password password = new Password("adm123");
+    private static final Password password = new Password("adm123.OI");
 
     public boolean validateEmail(Email emailWrite){
         return email.equals(emailWrite);

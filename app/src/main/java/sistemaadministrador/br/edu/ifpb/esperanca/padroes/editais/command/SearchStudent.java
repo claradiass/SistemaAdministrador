@@ -3,26 +3,34 @@ package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command;
 import java.util.Scanner;
 
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.Student;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.FileService;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.StudentRepository;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.StudentService;
 
 import java.util.List; 
 
 public class SearchStudent implements Command{
-    private StudentService controller;
 
-    public SearchStudent(StudentService controller) {
-        this.controller = controller;
-    }
+    private StudentRepository studentRepository = StudentRepository.getInstance();
+    
 
     @Override
     public void execute() {
+        StudentService controller = new StudentService(StudentRepository.getInstance());
+        studentRepository.updateRepository(new FileService());
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Digite aqui: ");
+
+        // controller.createStudentAccount("ana", "Ana Clara", "ana.098KKKKK");
+
+
+        System.out.print("Digite aqui: ");
         String termo = scanner.nextLine();
         controller.searchStudent(termo);
         List<Student> students = controller.searchStudent(termo); 
-        System.out.println(students);
+        for (Student student : students) {
+            System.out.print("Conta: " + student.toString());
+        }
     }
 
 }

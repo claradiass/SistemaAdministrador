@@ -6,7 +6,7 @@ import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.Student
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.list.StudentsList;
 
 public class InMemoryStudent implements DataService<Student>{
-    private StudentsList students = new StudentsList();
+    protected StudentsList students = new StudentsList();
 
     @Override
     public void createAccount(Student student) {

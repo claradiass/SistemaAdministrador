@@ -4,18 +4,16 @@ import java.util.List;
 import java.util.Scanner;
 
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.Student;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.StudentRepository;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.StudentService;
 
 
 public class UpdateStudent implements Command {
-    private StudentService controller;
-
-    public UpdateStudent(StudentService controller) {
-        this.controller = controller;
-    }
+    
 
     @Override
     public void execute() {
+        StudentService controller = new StudentService(StudentRepository.getInstance());
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Busque pelo nome de usuário: ");
