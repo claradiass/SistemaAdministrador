@@ -1,5 +1,6 @@
 package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.list;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -7,7 +8,8 @@ import java.util.stream.Collectors;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.Professor;
 
 
-public class ProfessorsList {
+public class ProfessorsList implements Serializable {
+    private static final long serialVersionUID = 1L; // Identificador de versão para serialização
     private List<Professor> professorsList;
 
     public ProfessorsList() {
@@ -58,5 +60,15 @@ public class ProfessorsList {
         if(searchProfessor != -1){
             professorsList.set(searchProfessor, professor);
         }
+    }
+
+    public int getProfessorIdByUsername(String username) {
+        for (int i = 0; i < professorsList.size(); i++) {
+            System.out.println("Comparing: " + professorsList.get(i).viewUserName() + " with " + username);
+            if (professorsList.get(i).exitsUserName(username)) {
+                return i;
+            }
+        }
+        return -1; // Return -1 if no student is found
     }
 }

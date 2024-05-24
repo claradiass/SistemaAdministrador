@@ -50,4 +50,8 @@ public class ProfessorRepository {
     public List<Professor> searchAccount(String termo) {
         return dataService.searchAccount(termo);
     } 
+
+    public int getProfessorIdByUsername(String userName) {
+        return dataService.getUserIdByUsername(userName);
+    }
 }

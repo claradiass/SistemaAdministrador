@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.Student;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.StudentService;
 
 
 public class StudentsList implements Serializable {
@@ -22,6 +23,16 @@ public class StudentsList implements Serializable {
     public List<Student> viewStudentsList() {
         return studentsList;
     } // private 
+
+    public int size(String userName){
+        // return studentsList.size();
+        for (int i = 0; i < studentsList.size(); i++) {
+            if (studentsList.get(i).exitsUserName(userName)) {
+                return i;
+            }
+        }
+        return -1;
+    }
 
     public void addStudent(Student student){
         studentsList.add(student);
@@ -61,4 +72,16 @@ public class StudentsList implements Serializable {
             studentsList.set(searchStudent, student);
         }
     }
+
+    public int getStudentIdByUsername(String username, int size) {
+        for (int i = 0; i < studentsList.size(); i++) {
+            if (studentsList.get(i).exitsUserName(username)) {
+                return i;
+            }
+        }
+        return -1; // Return -1 if no student is found
+    }
+
+    
+    
 }

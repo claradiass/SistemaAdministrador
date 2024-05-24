@@ -6,7 +6,7 @@ import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.Profess
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.list.ProfessorsList;
 
 public class InMemoryProfessor implements DataService<Professor>{
-    private ProfessorsList professors;
+    private ProfessorsList professors = new ProfessorsList();
 
     @Override
     public void createAccount(Professor professor) {
@@ -42,5 +42,18 @@ public class InMemoryProfessor implements DataService<Professor>{
     public List<Professor> searchAccount(String termo) {
         return professors.searchProfessorByUserName(termo);
     }
+
+    @Override
+    public int getUserIdByUsername(String userName) {
+        return professors.getProfessorIdByUsername(userName);
+    }
+
+    @Override
+    public int size() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'size'");
+    }
+
+    
     
 }

@@ -17,8 +17,6 @@ public class DisableStudentAccount implements Command{
         Scanner scanner = new Scanner(System.in);
         StudentService controller = new StudentService(StudentRepository.getInstance());
 
-        controller.createStudentAccount("ana", "Ana Clara", "ana.098KKKKK");
-
         System.out.print("Digite aqui o nome: ");
         String termo = scanner.nextLine();
         controller.searchStudent(termo);
@@ -32,9 +30,10 @@ public class DisableStudentAccount implements Command{
         
         System.out.print("Digite aqui o indice: ");
         int indice = scanner.nextInt();
+        Student selecStudent = students.get(indice);
         // scanner.nextLine(); 
 
-        controller.disableStudentAccount(indice);
+        controller.disableStudentAccount(selecStudent);
     }
 
 

@@ -1,10 +1,11 @@
 package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain;
 
+
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.models.Name;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.models.Password;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.models.UserName;
 
-public class Student extends User{
+public class Student extends User {
 
     public Student(Name name, Password password, UserName userName) {
         super(name, password, userName);

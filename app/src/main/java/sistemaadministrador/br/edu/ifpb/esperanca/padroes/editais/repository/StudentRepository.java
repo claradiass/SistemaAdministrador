@@ -52,5 +52,13 @@ public class StudentRepository {
         return dataService.searchAccount(termo);
     } 
 
+    public int getStudentIdByUsername(String userName, int size){
+        return dataService.getUserIdByUsername(userName, size);
+    }
+
+    public int size(String userName) {
+        return dataService.size(userName);
+    }
+
 
 }

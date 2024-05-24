@@ -49,14 +49,15 @@ public class StudentService implements FacadeStudent{
     }
 
     @Override
-    public void disableStudentAccount(int idStudent) {
-        Student selectStudent = studentRepository.findById(idStudent);
+    public void disableStudentAccount(Student selectStudent) {
+        //  int selectedStudentId = students.get(indice).getId();3
         selectStudent.modifyStatusToDisable();
         System.out.println(selectStudent.verifyStatus());
     }
 
     @Override
     public void UpdateStudentAccount(int id, String name, String userName, String password) {
+        
         Name newName = new Name(name);
         UserName newUserName = new UserName(userName);
         Password newPassword = new Password(password);
@@ -64,5 +65,15 @@ public class StudentService implements FacadeStudent{
 
         studentRepository.updateUser(id, studentToUpdate);
     }
+
+    @Override
+    public int getStudentIdByUsername(String username, int size) {
+        return studentRepository.getStudentIdByUsername(username, size);
+    }
+
+    @Override
+    public int size(String userName) {
+        return studentRepository.size(userName);
+    }   
 
 }

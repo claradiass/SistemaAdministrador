@@ -3,29 +3,35 @@ import java.util.Scanner;
 
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.CommandExecute;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.CreateStudentAccount;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.CreateProfessorAccount; // Nova importação
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.DisableStudentAccount;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.LoginAdmin;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.SearchStudent;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.UpdateStudent;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.DisableProfessorAccount; // Nova importação
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.SearchStudentAccount;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.SearchProfessorAccount; // Nova importação
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.UpdateStudentAccount;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.UpdateProfessorAccount; // Nova importação
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.ViewStudentList;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.FileService;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.ViewProfessorList; // Nova importação
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.FileServiceStudent;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.FileServiceProfessor; // Nova importação
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.StudentRepository;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.StudentService;
-
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.ProfessorRepository; // Nova importação
 public class App {
     private static CommandExecute execute = new CommandExecute();
     private StudentRepository studentRepository = StudentRepository.getInstance();
+    private ProfessorRepository professorRepository = ProfessorRepository.getInstance(); // Nova instanciação
     
 
     public void menuPrincipal() {
-        studentRepository.updateRepository(new FileService());
+        studentRepository.updateRepository(new FileServiceStudent());
+        professorRepository.updateRepository(new FileServiceProfessor()); // Nova chamada para atualizar o repositório de professores
         Scanner scanner = new Scanner(System.in);
 
-        // execute.execute(new LoginAdmin(controller));
+        // execute.execute(new LoginAdmin());
 
         int op = -1;
 
-        while (op != 6) {
+        while (op != 11) { // Mudança do valor 6 para 9 para incluir as opções do professor
             exibirMenu();
             System.out.print("Digite a opção: ");
             op = scanner.nextInt();
@@ -39,15 +45,31 @@ public class App {
                     execute.execute(new ViewStudentList());
                     break;
                 case 3:
-                    execute.execute(new SearchStudent());
+                    execute.execute(new SearchStudentAccount());
                     break;
                 case 4:
                     execute.execute(new DisableStudentAccount());
                     break;
                 case 5:
-                    execute.execute(new UpdateStudent());
+                    execute.execute(new UpdateStudentAccount());
                     break;
-                case 6:
+                case 6: // Adição das opções para professor
+                    execute.execute(new CreateProfessorAccount());
+                    break;
+                case 7:
+                    execute.execute(new ViewProfessorList());
+                    break;
+                case 8:
+                    execute.execute(new SearchProfessorAccount());
+                    break;
+
+                case 9:
+                    execute.execute(new DisableProfessorAccount());
+                    break;
+                case 10:
+                    execute.execute(new UpdateProfessorAccount());
+                    break;
+                case 11:
                     System.out.println("Saindo do sistema...");
                     break;
                 default:
@@ -65,7 +87,12 @@ public class App {
         System.out.println("3. Procurar aluno");
         System.out.println("4. Desativar conta de aluno");
         System.out.println("5. Atualizar dados do aluno");
-        System.out.println("6. Sair do sistema");
+        System.out.println("6. Criar conta de professor");
+        System.out.println("7. Visualizar lista de professores");
+        System.out.println("8. Procurar professor");
+        System.out.println("9. Desativar conta de professor");
+        System.out.println("10. Atualizar dados do professor");
+        System.out.println("11. Sair do sistema");
         System.out.println("--------------------------------------------------------------------------");
     }
 
@@ -74,4 +101,3 @@ public class App {
         app.menuPrincipal();
     }
 }
-

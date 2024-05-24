@@ -35,8 +35,7 @@ public class ProfessorService implements FacadeProfessor{
     }
 
     @Override
-    public void disableProfessorAccount(int idProfessor) {
-        Professor selectProfessor = professorRepository.findById(idProfessor);
+    public void disableProfessorAccount(Professor selectProfessor) {
         selectProfessor.modifyStatusToDisable();
         System.out.println(selectProfessor.verifyStatus());
     }
@@ -59,5 +58,10 @@ public class ProfessorService implements FacadeProfessor{
     @Override
     public List<Professor> searchProfessor(String userName) {
         return professorRepository.searchAccount(userName);
+    }
+
+    @Override
+    public int getStudentIdByUsername(String username) {
+        return professorRepository.getProfessorIdByUsername(username);
     }
 }

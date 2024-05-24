@@ -12,5 +12,7 @@ public interface DataService<T>{
     T findById(int id);
     List<T> findAll();
     List<T> searchAccount(String termo);
+    int getUserIdByUsername(String userName, int size);
+    int size(String userName);
 
 }
