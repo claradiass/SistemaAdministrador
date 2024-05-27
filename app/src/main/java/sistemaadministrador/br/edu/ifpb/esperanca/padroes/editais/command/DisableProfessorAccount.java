@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Scanner;
 
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.Professor;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.Student;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.ProfessorRepository;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.professor.ProfessorService;
 
@@ -21,15 +20,16 @@ public class DisableProfessorAccount implements Command{
         
             for (int i = 0; i < professors.size(); i++) {
                 Professor professor = professors.get(i);
-                System.out.printf("[%d] - %s",i , professor);
+                System.out.printf("[%d] - %s\n",i , professor);
             }
-        
-        
+
         System.out.print("Digite aqui o indice: ");
         int indice = scanner.nextInt();
-        Professor selecProfessor = professors.get(indice);
-        // scanner.nextLine(); 
 
-        controller.disableProfessorAccount(selecProfessor);
+        Professor selectProfessor = professors.get(indice);
+        String selectProfessorUserName =  selectProfessor.viewUserName();
+        int newIndice = controller.getUserIdByUsername(selectProfessorUserName);
+
+        controller.disableProfessorAccount(newIndice);
     }
 }

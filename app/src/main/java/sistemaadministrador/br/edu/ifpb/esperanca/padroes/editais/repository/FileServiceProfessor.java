@@ -129,12 +129,8 @@ public class FileServiceProfessor extends InMemoryProfessor{
         return professorsList.searchProfessorByUserName(termo);
     }
 
-    public int getStudentIdByUsername(String userName) {
-        return professorsList.getProfessorIdByUsername(userName);
-    }
-
-    public int size(String userName) {
-        return professorsList.size(userName);
+    public int getUserIdByUsername(String userName) {
+        return professorsList.getUserIdByUsername(userName);
     }
 
     public void validateUserName(String userName) {

@@ -124,15 +124,11 @@ public class FileServiceStudent extends InMemoryStudent{
         return studentsList.searchStudentByUserName(termo);
     }
 
-    public int size(String userName){
-        return studentsList.size(userName);
+    public int getUserIdByUsername(String userName){
+        return studentsList.getUserIdByUsername(userName);
     }
 
     public void validateUserName(String userName){
         studentsList.validateUserName(userName);
-    }
-
-    public int getStudentIdByUsername(String userName, int size) {
-        return studentsList.getStudentIdByUsername(userName, size);
     }
 }

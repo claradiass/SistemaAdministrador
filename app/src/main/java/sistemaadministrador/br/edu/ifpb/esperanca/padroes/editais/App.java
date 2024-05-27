@@ -3,35 +3,33 @@ import java.util.Scanner;
 
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.CommandExecute;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.CreateStudentAccount;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.CreateProfessorAccount; // Nova importação
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.CreateProfessorAccount; 
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.DisableStudentAccount;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.DisableProfessorAccount; // Nova importação
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.DisableProfessorAccount; 
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.SearchStudentAccount;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.SearchProfessorAccount; // Nova importação
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.SearchProfessorAccount; 
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.UpdateStudentAccount;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.UpdateProfessorAccount; // Nova importação
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.UpdateProfessorAccount; 
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.ViewStudentList;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.ViewProfessorList; // Nova importação
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.ViewProfessorList; 
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.FileServiceStudent;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.FileServiceProfessor; // Nova importação
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.FileServiceProfessor; 
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.StudentRepository;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.ProfessorRepository; // Nova importação
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.ProfessorRepository; 
 public class App {
     private static CommandExecute execute = new CommandExecute();
     private StudentRepository studentRepository = StudentRepository.getInstance();
-    private ProfessorRepository professorRepository = ProfessorRepository.getInstance(); // Nova instanciação
+    private ProfessorRepository professorRepository = ProfessorRepository.getInstance(); 
     
 
     public void menuPrincipal() {
         studentRepository.updateRepository(new FileServiceStudent());
-        professorRepository.updateRepository(new FileServiceProfessor()); // Nova chamada para atualizar o repositório de professores
+        professorRepository.updateRepository(new FileServiceProfessor()); 
         Scanner scanner = new Scanner(System.in);
-
-        // execute.execute(new LoginAdmin());
 
         int op = -1;
 
-        while (op != 11) { // Mudança do valor 6 para 9 para incluir as opções do professor
+        while (op != 11) { 
             exibirMenu();
             System.out.print("Digite a opção: ");
             op = scanner.nextInt();
@@ -53,7 +51,7 @@ public class App {
                 case 5:
                     execute.execute(new UpdateStudentAccount());
                     break;
-                case 6: // Adição das opções para professor
+                case 6: 
                     execute.execute(new CreateProfessorAccount());
                     break;
                 case 7:
@@ -62,7 +60,6 @@ public class App {
                 case 8:
                     execute.execute(new SearchProfessorAccount());
                     break;
-
                 case 9:
                     execute.execute(new DisableProfessorAccount());
                     break;

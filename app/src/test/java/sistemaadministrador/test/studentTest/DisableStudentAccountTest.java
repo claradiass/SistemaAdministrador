@@ -23,11 +23,11 @@ public class DisableStudentAccountTest {
     }
 
     @Test
-    public void testDisableStudentAccount() {
+    public void testDisableStudentAccount_Successful() {
         // Teste para desativação bem-sucedida
         String name = "Ana";
-        int indice = 0;
-        String input = name + "\n" + indice;
+        int index = 0;
+        String input = name + "\n" + index;
 
         InputStream inputStream = new ByteArrayInputStream(input.getBytes());
         System.setIn(inputStream);
@@ -45,21 +45,22 @@ public class DisableStudentAccountTest {
         StudentService studentService = new StudentService(studentRepository);
         List<Student> students = studentService.searchStudent("");
 
-        System.out.println(students);
-
         assertFalse(students.get(0).verifyStatus());
+    }
 
+    @Test
+    public void testDisableStudentAccount_Exception() {
         // Teste para lançar exceção ao tentar desativar novamente a mesma conta
-        String nome2 = "Ana";
-        int indice2 = 0;
-        String input2 = nome2 + "\n" + indice2;
-        InputStream inputStream2 = new ByteArrayInputStream(input2.getBytes());
-        System.setIn(inputStream2);
+        String name = "Ana";
+        int index = 0;
+        String input = name + "\n" + index;
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inputStream);
 
         // Capturando a saída do sistema
-        ByteArrayOutputStream outContent2 = new ByteArrayOutputStream();
-        PrintStream originalOut2 = System.out;
-        System.setOut(new PrintStream(outContent2));
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        PrintStream originalOut = System.out;
+        System.setOut(new PrintStream(outContent));
 
         DisableStudentAccount command = new DisableStudentAccount();
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
@@ -67,16 +68,9 @@ public class DisableStudentAccountTest {
         });
 
         // Restaurando a entrada e a saída padrão do sistema
-        System.setOut(originalOut2);
+        System.setOut(originalOut);
 
-        // Verificando se a conta do aluno foi desativada corretamente
-        assertFalse(students.get(0).verifyStatus());
+        // Verificando se a exceção é lançada corretamente
         assertEquals("User already deactivated", exception.getMessage());
     }
-
 }
-
-
-
-
-

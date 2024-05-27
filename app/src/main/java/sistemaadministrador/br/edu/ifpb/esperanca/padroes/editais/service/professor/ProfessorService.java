@@ -23,21 +23,19 @@ public class ProfessorService implements FacadeProfessor{
         
         Professor professor = new Professor(name, password, userName);
 
-        // Validar o nome de usuário
         try {
             professor.validateProfessor(nome, usuario, senha);
         } catch (IllegalArgumentException e) {
             System.out.println("Erro ao criar conta de professor: " + e.getMessage());
-            return; // Sai do método se a validação falhar
+            return; 
         }
 
         professorRepository.createAccount(professor);
     }
 
     @Override
-    public void disableProfessorAccount(Professor selectProfessor) {
-        selectProfessor.modifyStatusToDisable();
-        System.out.println(selectProfessor.verifyStatus());
+    public void disableProfessorAccount(int id) {
+        professorRepository.disableAccount(id);
     }
 
     @Override
@@ -61,17 +59,12 @@ public class ProfessorService implements FacadeProfessor{
     }
 
     @Override
-    public int size(String userName) {
-        return professorRepository.size(userName);
+    public int getUserIdByUsername(String userName) {
+        return professorRepository.getUserIdByUsername(userName);
     }
 
     @Override
     public void validateUserName(String userName) {
         professorRepository.validateUserName(userName);
     }
-
-    // @Override
-    // public int getStudentIdByUsername(String username) {
-    //     return professorRepository.getProfessorIdByUsername(username);
-    // }
 }

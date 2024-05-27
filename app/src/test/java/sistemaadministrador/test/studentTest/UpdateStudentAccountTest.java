@@ -38,6 +38,6 @@ public class UpdateStudentAccountTest {
         List<Student> students = studentService.viewStudentList();
 
         // Verificando se o nome, usuário e senha do estudante foram atualizados corretamente
-        assertEquals("Nome: NovoNome Usuário: NovoUsuario status: true", students.get(0).toString()); // Assumindo que o toString() de Student retorna o nome
+        assertEquals("Nome: NovoNome2 Usuário: NovoUsuario2 status: true", students.get(0).toString()); // Assumindo que o toString() de Student retorna o nome
     }
 }

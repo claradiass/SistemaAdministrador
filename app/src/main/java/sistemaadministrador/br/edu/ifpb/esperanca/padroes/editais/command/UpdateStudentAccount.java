@@ -25,20 +25,13 @@ public class UpdateStudentAccount implements Command {
             System.out.printf( "[%d] - %s\n", i, student);
         }
 
-        
-
         System.out.println("Digite aqui o índice do usuário que deseja alterar: ");
         int indice = scanner.nextInt();
         scanner.nextLine();
         
-        
-        
         Student selecStudent = students.get(indice);
         String selectStudentUserName =  selecStudent.viewUserName();
-        int newIndice = controller.size(selectStudentUserName);
-        
-
-
+        int newIndice = controller.getUserIdByUsername(selectStudentUserName);
 
         System.out.println("Digite aqui o novo nome: ");
         String newName = scanner.nextLine();
@@ -49,13 +42,8 @@ public class UpdateStudentAccount implements Command {
         System.out.println("Digite aqui a nova senha: ");
         String newPassword = scanner.nextLine();
 
-        // int selectedStudentId = students.get(indice).getId();
-
-        // Chamada do método de atualização
-        
         controller.UpdateStudentAccount(newIndice, newName, newUser, newPassword);
     }
-
 }
 
 

@@ -44,26 +44,12 @@ public class InMemoryStudent implements DataService<Student>{
     }
 
     @Override
-    public int getUserIdByUsername(String userName, int size) {
-        return students.getStudentIdByUsername(userName, size);
-    }
-
-    @Override
-    public int size(String userName) {
-        return students.size(userName);
+    public int getUserIdByUsername(String userName) {
+        return students.getUserIdByUsername(userName);
     }
 
     @Override
     public void validateUserName(String userName) {
         students.validateUserName(userName);
     }
-
-    // @Override
-    // public int getUserIdByUsername(String userName) {
-    //     // TODO Auto-generated method stub
-    //     throw new UnsupportedOperationException("Unimplemented method 'getUserIdByUsername'");
-    // }
-
-    
-    
 }

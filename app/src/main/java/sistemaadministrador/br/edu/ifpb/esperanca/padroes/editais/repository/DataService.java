@@ -4,7 +4,6 @@ import java.util.List;
 // definindo interface do repositório tanto para estudantes quanto para professores
 // usando <T> para não especificar o tipo e poder ser usando tanto para student quanto para professor
 public interface DataService<T>{
-
     void createAccount(T entity);
     void disableAccount(int id);
     void activeAccount(int id);
@@ -12,8 +11,6 @@ public interface DataService<T>{
     T findById(int id);
     List<T> findAll();
     List<T> searchAccount(String termo);
-    int getUserIdByUsername(String userName, int size);
-    int size(String userName);
+    int getUserIdByUsername(String userName);
     void validateUserName(String userName);
-
 }

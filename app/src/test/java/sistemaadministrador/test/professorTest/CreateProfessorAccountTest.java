@@ -22,7 +22,7 @@ public class CreateProfessorAccountTest {
         TestSetup.setup();
     }
 
-    @Test // indica que é método é um caso de teste Junit
+    @Test 
     public void testCreateProfessorAccount() {
         String input = "Jaindson\nJaindson\nJaindson.123J";
         InputStream inputStream = new ByteArrayInputStream(input.getBytes());
@@ -38,11 +38,10 @@ public class CreateProfessorAccountTest {
         System.setOut(originalOut);
 
         assertTrue(outContent.toString().contains("Sua conta foi criada com sucesso!"));
-
     }
 
     @Test
-    public void testWrongPassword() {
+    public void testWrongFormatPassword() {
         String input = "John Doe\njohndoe\npassword.ANA\n";
         InputStream inputStream = new ByteArrayInputStream(input.getBytes());
         System.setIn(inputStream);

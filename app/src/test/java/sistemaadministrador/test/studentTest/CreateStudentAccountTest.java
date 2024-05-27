@@ -186,7 +186,7 @@ public class CreateStudentAccountTest {
     @Test
     public void testUserNameExists() {
         
-        String input = "Ana Clara\nNovoUsuario\nAna.9090linda\n";
+        String input = "Ana Clara\nNovoUsuario\nAna.9090clara\n";
         InputStream inputStream = new ByteArrayInputStream(input.getBytes());
         System.setIn(inputStream);
 

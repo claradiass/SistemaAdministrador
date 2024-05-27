@@ -12,13 +12,13 @@ public class User implements Serializable {
     private Name name;
     private Password password;
     private UserName userName;
-    private boolean status;
+    private boolean status; // B maiúsculo permite o null
     
     public User(Name name, Password password, UserName userName) {
         this.name = name;
         this.password = password;
         this.userName = userName;
-        status = true;
+        this.status = true;
     }
 
     public String viewUserName(){
@@ -51,12 +51,11 @@ public class User implements Serializable {
         return status;
     }
 
-    public boolean modifyStatusToDisable()throws IllegalArgumentException{
+    public void modifyStatusToDisable()throws IllegalArgumentException{
         if (!status){
             throw new IllegalArgumentException("User already deactivated");
         } 
         status = false;
-        return status;
     }
 
     public boolean modifyStatusToActivate(){

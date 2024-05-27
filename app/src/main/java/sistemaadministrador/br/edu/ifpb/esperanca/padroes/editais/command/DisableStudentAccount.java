@@ -8,34 +8,31 @@ import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.Stu
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.student.StudentService;
 
 
-
-
 public class DisableStudentAccount implements Command{
 
     @Override
     public void execute() {
-        Scanner scanner = new Scanner(System.in);
         StudentService controller = new StudentService(StudentRepository.getInstance());
+        Scanner scanner = new Scanner(System.in);
 
         System.out.print("Digite aqui o nome: ");
         String termo = scanner.nextLine();
-        controller.searchStudent(termo);
+
         List<Student> students = controller.searchStudent(termo); 
         
             for (int i = 0; i < students.size(); i++) {
                 Student student = students.get(i);
-                System.out.printf("[%d] - %s",i , student);
+                System.out.printf( "[%d] - %s\n", i, student);
             }
-        
-        
+
         System.out.print("Digite aqui o indice: ");
         int indice = scanner.nextInt();
+
         Student selecStudent = students.get(indice);
-        // scanner.nextLine(); 
+        String selectStudentUserName =  selecStudent.viewUserName();
+        int newIndice = controller.getUserIdByUsername(selectStudentUserName);
 
-        controller.disableStudentAccount(selecStudent);
+        controller.disableStudentAccount(newIndice);
+        System.out.println("Deu certo");
     }
-
-
-
 }

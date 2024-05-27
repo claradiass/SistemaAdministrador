@@ -17,14 +17,12 @@ public class StudentsList implements Serializable {
             this.studentsList = new ArrayList<>();
         }
     }
-    //sempre vai criar uma nova instância
 
     public List<Student> viewStudentsList() {
         return studentsList;
-    } // private 
+    }  
 
-    public int size(String userName){
-        // return studentsList.size();
+    public int getUserIdByUsername(String userName){
         for (int i = 0; i < studentsList.size(); i++) {
             if (studentsList.get(i).exitsUserName(userName)) {
                 return i;
@@ -64,7 +62,8 @@ public class StudentsList implements Serializable {
     }
 
     public void disableAccount(int id){
-        Student student = viewStudent(id);
+        Student student = studentsList.get(id);
+        System.out.println(student.viewUserName());
         student.modifyStatusToDisable(); 
     }
 
@@ -78,17 +77,6 @@ public class StudentsList implements Serializable {
         if(searchStudent != -1){
             studentsList.set(searchStudent, student);
         }
-    }
-
-    public int getStudentIdByUsername(String username, int size) {
-        for (int i = 0; i < studentsList.size(); i++) {
-            if (studentsList.get(i).exitsUserName(username)) {
-                return i;
-            }
-        }
-        return -1; // Return -1 if no student is found
-    }
-
-    
+    } 
     
 }

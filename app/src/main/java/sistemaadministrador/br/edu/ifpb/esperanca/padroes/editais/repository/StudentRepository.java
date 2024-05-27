@@ -2,7 +2,6 @@ package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository;
 
 import java.util.List;
 
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.Professor;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.Student;
 
 public class StudentRepository {
@@ -50,20 +49,14 @@ public class StudentRepository {
 
     public List<Student> searchAccount(String termo) {
         return dataService.searchAccount(termo);
-    } 
-
-    public int getStudentIdByUsername(String userName, int size){
-        return dataService.getUserIdByUsername(userName, size);
     }
 
-    public int size(String userName) {
-        return dataService.size(userName);
+    public int getUserIdByUsername(String userName) {
+        return dataService.getUserIdByUsername(userName);
     }
 
     public void validateUserName(String userName) {
         dataService.validateUserName(userName);
     }
-
-    
 
 }

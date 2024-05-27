@@ -24,6 +24,6 @@ public class DataTest {
         List<Professor> professors = professorService.searchProfessor("");
 
         System.out.println(professors);
-        assertEquals(5, professors.size());
+        assertEquals(5, professors.size()); // o objetivo desse teste não é dá certo, é apenas para visualização da lista no console de depuração
     }
 }

@@ -8,9 +8,6 @@ import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.models.
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.models.UserName;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.StudentRepository;
 
-
-
-
 public class StudentService implements FacadeStudent{
     private final StudentRepository studentRepository;
 
@@ -27,12 +24,11 @@ public class StudentService implements FacadeStudent{
         
         Student student = new Student(name, password, userName);
 
-        // Validar o nome de usuário
         try {
             student.validateStudent(nome, usuario, senha);
         } catch (IllegalArgumentException e) {
             System.out.println("Erro ao criar conta de estudante: " + e.getMessage());
-            return; // Sai do método se a validação falhar
+            return; 
         }
 
         studentRepository.createAccount(student);
@@ -49,10 +45,8 @@ public class StudentService implements FacadeStudent{
     }
 
     @Override
-    public void disableStudentAccount(Student selectStudent) {
-        //  int selectedStudentId = students.get(indice).getId();3
-        selectStudent.modifyStatusToDisable();
-        System.out.println(selectStudent.verifyStatus());
+    public void disableStudentAccount(int id) {
+        studentRepository.disableAccount(id);
     }
 
     @Override
@@ -67,13 +61,8 @@ public class StudentService implements FacadeStudent{
     }
 
     @Override
-    public int getStudentIdByUsername(String username, int size) {
-        return studentRepository.getStudentIdByUsername(username, size);
-    }
-
-    @Override
-    public int size(String userName) {
-        return studentRepository.size(userName);
+    public int getUserIdByUsername(String userName) {
+        return studentRepository.getUserIdByUsername(userName);
     }
 
     @Override

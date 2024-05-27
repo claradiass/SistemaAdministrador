@@ -28,7 +28,7 @@ public class UpdateProfessorAccount implements Command{
 
         Professor selectProfessor = professors.get(indice);
         String selectProfessorUserName =  selectProfessor.viewUserName();
-        int newIndice = controller.size(selectProfessorUserName);
+        int newIndice = controller.getUserIdByUsername(selectProfessorUserName);
         
 
         System.out.println("Digite aqui o novo nome: ");

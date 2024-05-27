@@ -51,12 +51,8 @@ public class ProfessorRepository {
         return dataService.searchAccount(termo);
     } 
 
-    // public int getProfessorIdByUsername(String userName) {
-    //     return dataService.getUserIdByUsername(userName);
-    // }
-
-    public int size(String userName) {
-        return dataService.size(userName);
+    public int getUserIdByUsername(String userName) {
+        return dataService.getUserIdByUsername(userName);
     }
 
     public void validateUserName(String userName) {
