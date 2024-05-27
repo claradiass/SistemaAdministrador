@@ -28,8 +28,9 @@ public class User implements Serializable {
     public void validateUser(String nameToCheck, String userNameToCheck, String passwordToCheck){
         name.validateName(nameToCheck);
         userName.validateUserName(userNameToCheck);
-        password.validatePassword(passwordToCheck);
         userName.exitsUserName(userNameToCheck);
+        password.validatePassword(passwordToCheck);
+        
     }
 
     public void updateUser(String newName, String newUserName, String newPassword){
@@ -50,12 +51,12 @@ public class User implements Serializable {
         return status;
     }
 
-    public boolean modifyStatusToDisable(){
+    public boolean modifyStatusToDisable()throws IllegalArgumentException{
         if (!status){
-            System.out.println("User already deactivated");
-            return status;
+            throw new IllegalArgumentException("User already deactivated");
         } 
-        return status = false;
+        status = false;
+        return status;
     }
 
     public boolean modifyStatusToActivate(){

@@ -3,7 +3,7 @@ package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command;
 import java.util.Scanner;
 
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.ProfessorRepository;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.ProfessorService;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.professor.ProfessorService;
 
 public class CreateProfessorAccount implements Command{
     @Override
@@ -25,6 +25,7 @@ public class CreateProfessorAccount implements Command{
         System.out.print("Senha: ");
         String validatingPassword = scanner.nextLine();
 
+        controller.validateUserName(validatingUserName);
         controller.createProfessorAccount(validatingName, validatingUserName, validatingPassword);
         System.out.println("Sua conta foi criada com sucesso!");
     }

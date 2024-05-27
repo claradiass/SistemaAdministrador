@@ -10,6 +10,7 @@ import java.io.PrintStream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class SearchStudentAccountTest {
@@ -29,7 +30,7 @@ public class SearchStudentAccountTest {
         // Password password = new Password("ana.890EF");
         // students.add(new Student(name, password, username));  
 
-        String searchTerm = "teste";
+        String searchTerm = "ana";
         InputStream inputStream = new ByteArrayInputStream(searchTerm.getBytes());
         System.setIn(inputStream);
 
@@ -61,7 +62,51 @@ public class SearchStudentAccountTest {
         System.out.println(output);
 
         // Verificando se a saída contém o nome do aluno esperado
-        assertTrue(output.contains("teste"));
+        assertTrue(output.contains("Usuário: Ana"));
+    }
+
+    @Test
+    public void testSearchStudentFail() {
+        // Preparando os dados de teste
+        // List<Student> students = new ArrayList<>();
+        // Name name = new Name("ana");
+        // UserName username = new UserName("Ana Clara");
+        // Password password = new Password("ana.890EF");
+        // students.add(new Student(name, password, username));  
+
+        String searchTerm = "zayan";
+        InputStream inputStream = new ByteArrayInputStream(searchTerm.getBytes());
+        System.setIn(inputStream);
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        PrintStream originalOut = System.out;
+        System.setOut(new PrintStream(outContent));
+        System.out.println(outContent);
+
+
+        // Criando uma instância do comando de busca de aluno
+        SearchStudentAccount searchStudent = new SearchStudentAccount();
+
+        // Chama o método execute(), que vai escrever a saída em outContent
+        // searchStudent.execute();
+        // System.setOut(originalOut);
+        
+        
+        // // Converte a saída capturada para uma string
+        // String output = outContent.toString();
+
+        // // Verificando se a saída contém o nome do aluno esperado
+        // assertTrue(output.contains("Nome: ana Usuário: Ana Clara"));
+
+        searchStudent.execute();
+        System.setOut(originalOut);
+        
+        // Converte a saída capturada para uma string
+        String output = outContent.toString();
+        System.out.println(output);
+
+        // Verificando se a saída contém o nome do aluno esperado
+        assertFalse(output.contains("zayan"));
     }
 
 }

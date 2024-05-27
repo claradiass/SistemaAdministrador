@@ -1,4 +1,4 @@
-package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service;
+package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.student;
 
 import java.util.List;
 
@@ -74,6 +74,11 @@ public class StudentService implements FacadeStudent{
     @Override
     public int size(String userName) {
         return studentRepository.size(userName);
+    }
+
+    @Override
+    public void validateUserName(String userName) {
+        studentRepository.validateUserName(userName);
     }   
 
 }

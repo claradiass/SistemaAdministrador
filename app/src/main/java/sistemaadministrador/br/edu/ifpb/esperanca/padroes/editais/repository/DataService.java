@@ -14,5 +14,6 @@ public interface DataService<T>{
     List<T> searchAccount(String termo);
     int getUserIdByUsername(String userName, int size);
     int size(String userName);
+    void validateUserName(String userName);
 
 }

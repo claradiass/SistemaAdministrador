@@ -53,6 +53,11 @@ public class InMemoryStudent implements DataService<Student>{
         return students.size(userName);
     }
 
+    @Override
+    public void validateUserName(String userName) {
+        students.validateUserName(userName);
+    }
+
     // @Override
     // public int getUserIdByUsername(String userName) {
     //     // TODO Auto-generated method stub

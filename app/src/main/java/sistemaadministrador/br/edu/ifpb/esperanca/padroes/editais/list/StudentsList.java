@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.Student;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.StudentService;
 
 
 public class StudentsList implements Serializable {
@@ -32,6 +31,14 @@ public class StudentsList implements Serializable {
             }
         }
         return -1;
+    }
+
+    public void validateUserName(String userName) throws IllegalArgumentException{
+        for (int i = 0; i < studentsList.size(); i++) {
+            if (studentsList.get(i).exitsUserName(userName)) {
+                throw new IllegalArgumentException("The username cannot be existing");
+            }
+        }
     }
 
     public void addStudent(Student student){

@@ -5,7 +5,7 @@ import java.util.Scanner;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.Student;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.FileServiceStudent;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.StudentRepository;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.StudentService;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.student.StudentService;
 
 import java.util.List; 
 

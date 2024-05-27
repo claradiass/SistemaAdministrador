@@ -1,4 +1,4 @@
-package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service;
+package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.professor;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ public class ProfessorService implements FacadeProfessor{
     }
 
     @Override
-    public void createProfessorAccount(String usuario, String nome, String senha) {
+    public void createProfessorAccount(String nome, String usuario, String senha) {
         Name name = new Name(nome);
         UserName userName = new UserName(usuario);
         Password password = new Password(senha);
@@ -61,7 +61,17 @@ public class ProfessorService implements FacadeProfessor{
     }
 
     @Override
-    public int getStudentIdByUsername(String username) {
-        return professorRepository.getProfessorIdByUsername(username);
+    public int size(String userName) {
+        return professorRepository.size(userName);
     }
+
+    @Override
+    public void validateUserName(String userName) {
+        professorRepository.validateUserName(userName);
+    }
+
+    // @Override
+    // public int getStudentIdByUsername(String username) {
+    //     return professorRepository.getProfessorIdByUsername(username);
+    // }
 }

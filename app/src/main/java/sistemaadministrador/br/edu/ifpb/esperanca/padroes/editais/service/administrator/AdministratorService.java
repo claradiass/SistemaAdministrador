@@ -1,4 +1,4 @@
-package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service;
+package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.administrator;
 
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.Administrador;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.models.Email;

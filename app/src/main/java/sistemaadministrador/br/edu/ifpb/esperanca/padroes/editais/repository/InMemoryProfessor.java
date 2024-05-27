@@ -43,15 +43,22 @@ public class InMemoryProfessor implements DataService<Professor>{
         return professors.searchProfessorByUserName(termo);
     }
 
+    
+
     @Override
-    public int getUserIdByUsername(String userName) {
-        return professors.getProfessorIdByUsername(userName);
+    public int getUserIdByUsername(String userName, int size) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getUserIdByUsername'");
     }
 
     @Override
-    public int size() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'size'");
+    public int size(String userName) {
+        return professors.size(userName);
+    }
+
+    @Override
+    public void validateUserName(String userName) {
+        professors.validateUserName(userName);
     }
 
     

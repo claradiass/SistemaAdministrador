@@ -1,4 +1,4 @@
-package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service;
+package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.student;
 
 import java.util.List;
 
@@ -13,6 +13,7 @@ public interface FacadeStudent {
     List<Student> searchStudent(String usuario);
     int getStudentIdByUsername(String username, int size);
     int size(String userName);
+    void validateUserName(String userName);
 }
 
 

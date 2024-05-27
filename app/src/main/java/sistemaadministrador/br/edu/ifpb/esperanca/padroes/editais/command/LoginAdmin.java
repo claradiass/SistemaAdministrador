@@ -2,7 +2,7 @@ package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command;
 
 import java.util.Scanner;
 
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.AdministratorService;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.administrator.AdministratorService;
 
 public class LoginAdmin implements Command {
 

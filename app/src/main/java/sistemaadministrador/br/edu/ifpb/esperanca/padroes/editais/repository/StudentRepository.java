@@ -60,5 +60,10 @@ public class StudentRepository {
         return dataService.size(userName);
     }
 
+    public void validateUserName(String userName) {
+        dataService.validateUserName(userName);
+    }
+
+    
 
 }

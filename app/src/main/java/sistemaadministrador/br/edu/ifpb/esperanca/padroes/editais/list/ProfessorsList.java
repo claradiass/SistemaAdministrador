@@ -62,6 +62,24 @@ public class ProfessorsList implements Serializable {
         }
     }
 
+    public int size(String userName){
+        for (int i = 0; i < professorsList.size(); i++) {
+            System.out.println("Comparing: " + professorsList.get(i).viewUserName() + " with " + userName);
+            if (professorsList.get(i).exitsUserName(userName)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public void validateUserName(String userName) throws IllegalArgumentException{
+        for (int i = 0; i < professorsList.size(); i++) {
+            if (professorsList.get(i).exitsUserName(userName)) {
+                throw new IllegalArgumentException("The username cannot be existing");
+            }
+        }
+    }
+
     public int getProfessorIdByUsername(String username) {
         for (int i = 0; i < professorsList.size(); i++) {
             System.out.println("Comparing: " + professorsList.get(i).viewUserName() + " with " + username);

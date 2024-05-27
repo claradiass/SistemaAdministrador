@@ -1,5 +1,6 @@
 package sistemaadministrador.test.professorTest;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.ByteArrayInputStream;
@@ -33,7 +34,34 @@ public class SearchProfessorAccountTest {
 
         System.setOut(originalOut);
 
-        assertTrue(outContent.toString().contains("Jaindson"));
+        assertTrue(outContent.toString().contains("Usuário: Jaindson"));
 
+    }
+
+    @Test
+    public void testSearchProfessorFail() {
+        // Simulando a entrada do usuário
+        String searchTerm = "zayan";
+        InputStream inputStream = new ByteArrayInputStream(searchTerm.getBytes());
+        System.setIn(inputStream);
+
+        // Capturando a saída do sistema
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        PrintStream originalOut = System.out;
+        System.setOut(new PrintStream(outContent));
+
+        // Criando uma instância do comando de busca de professor
+        SearchProfessorAccount searchProfessor = new SearchProfessorAccount();
+
+        // Chama o método execute(), que vai escrever a saída em outContent
+        searchProfessor.execute();
+        System.setOut(originalOut);
+        
+        // Converte a saída capturada para uma string
+        String output = outContent.toString();
+        System.out.println(output);
+
+        // Verificando se a saída não contém o termo de busca inesperado
+        assertFalse(output.contains("zayan"));
     }
 }

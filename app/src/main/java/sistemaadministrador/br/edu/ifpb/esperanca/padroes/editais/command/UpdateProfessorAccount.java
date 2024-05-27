@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.Professor;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.ProfessorRepository;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.ProfessorService;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.professor.ProfessorService;
 
 public class UpdateProfessorAccount implements Command{
     @Override
@@ -28,7 +28,7 @@ public class UpdateProfessorAccount implements Command{
 
         Professor selectProfessor = professors.get(indice);
         String selectProfessorUserName =  selectProfessor.viewUserName();
-        int newIndice = controller.getStudentIdByUsername(selectProfessorUserName);
+        int newIndice = controller.size(selectProfessorUserName);
         
 
         System.out.println("Digite aqui o novo nome: ");

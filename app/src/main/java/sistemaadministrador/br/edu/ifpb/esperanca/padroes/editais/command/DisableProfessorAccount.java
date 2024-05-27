@@ -6,7 +6,7 @@ import java.util.Scanner;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.Professor;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.Student;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.ProfessorRepository;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.ProfessorService;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.professor.ProfessorService;
 
 public class DisableProfessorAccount implements Command{
     @Override

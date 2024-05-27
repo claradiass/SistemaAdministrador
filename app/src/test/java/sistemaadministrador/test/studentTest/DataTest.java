@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.Student;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.StudentRepository;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.StudentService;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.student.StudentService;
 
 public class DataTest {
     @BeforeEach
@@ -18,12 +18,12 @@ public class DataTest {
     }
 
     @Test
-    public void dataTeste(){
+    public void dataTest(){
         StudentRepository studentRepository = StudentRepository.getInstance();
         StudentService studentService = new StudentService(studentRepository);
         List<Student> students = studentService.searchStudent("");
 
         System.out.println(students);
-        assertEquals(3, students.size());
+        assertEquals(4, students.size());
     }
 }

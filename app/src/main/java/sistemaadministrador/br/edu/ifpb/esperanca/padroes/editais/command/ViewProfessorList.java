@@ -1,7 +1,7 @@
 package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command;
 
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.ProfessorRepository;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.ProfessorService;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.professor.ProfessorService;
 
 public class ViewProfessorList implements Command{
     @Override

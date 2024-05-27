@@ -12,9 +12,7 @@ import org.junit.jupiter.api.Test;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.UpdateProfessorAccount;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.Professor;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.ProfessorRepository;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.ProfessorRepository;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.ProfessorService;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.ProfessorService;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.professor.ProfessorService;
 
 public class UpdateProfessorAccountTest {
     @BeforeEach

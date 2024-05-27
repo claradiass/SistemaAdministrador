@@ -1,8 +1,6 @@
 package sistemaadministrador.test.studentTest;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
 import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -11,8 +9,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.ViewStudentList;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.StudentRepository;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.FileServiceStudent;
 
 
 public class ViewStudentListTest {
@@ -51,7 +47,7 @@ public class ViewStudentListTest {
         // Basicamente, restaurar a saída padrão do sistema após o teste é uma medida de precaução para garantir que seu ambiente de teste permaneça limpo e 
         // não afete o funcionamento de outros testes ou do próprio código em execução.
 
-        assertTrue(outContent.toString().contains("teste"));
+        assertTrue(outContent.toString().contains("[Nome: Ana Usuário: Ana status: true]"));
         // Aqui, você está verificando se a saída capturada pelo outContent contém a mensagem de sucesso esperada. Se a mensagem estiver presente na saída, 
         //o teste será considerado bem-sucedido; caso contrário, será considerado falha.
     }

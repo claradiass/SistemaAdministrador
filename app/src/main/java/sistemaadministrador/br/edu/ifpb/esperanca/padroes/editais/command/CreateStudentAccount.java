@@ -3,7 +3,7 @@ package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command;
 import java.util.Scanner;
 
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.StudentRepository;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.StudentService;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.student.StudentService;
 
 
 
@@ -30,6 +30,7 @@ public class CreateStudentAccount implements Command {
         System.out.print("Senha: ");
         String validatingPassword = scanner.nextLine();
 
+        controller.validateUserName(validatingUserName);
         controller.createStudentAccount(validatingName, validatingUserName, validatingPassword);
         System.out.println("Sua conta foi criada com sucesso!");
     }

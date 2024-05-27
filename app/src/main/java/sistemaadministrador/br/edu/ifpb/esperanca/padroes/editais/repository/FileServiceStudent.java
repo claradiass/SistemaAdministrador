@@ -128,6 +128,10 @@ public class FileServiceStudent extends InMemoryStudent{
         return studentsList.size(userName);
     }
 
+    public void validateUserName(String userName){
+        studentsList.validateUserName(userName);
+    }
+
     public int getStudentIdByUsername(String userName, int size) {
         return studentsList.getStudentIdByUsername(userName, size);
     }

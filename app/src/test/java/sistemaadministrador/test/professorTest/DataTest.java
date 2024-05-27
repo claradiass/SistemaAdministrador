@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.Professor;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.ProfessorRepository;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.ProfessorService;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.professor.ProfessorService;
 
 public class DataTest {
     @BeforeEach
@@ -24,6 +24,6 @@ public class DataTest {
         List<Professor> professors = professorService.searchProfessor("");
 
         System.out.println(professors);
-        assertEquals(1, professors.size());
+        assertEquals(5, professors.size());
     }
 }

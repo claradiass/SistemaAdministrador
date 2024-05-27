@@ -1,7 +1,7 @@
 package sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command;
 
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.StudentRepository;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.StudentService;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.student.StudentService;
 
 public class ViewStudentList implements Command{
 

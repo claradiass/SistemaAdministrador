@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.command.UpdateStudentAccount;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.domain.Student;
 import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.repository.StudentRepository;
-import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.StudentService;
+import sistemaadministrador.br.edu.ifpb.esperanca.padroes.editais.service.student.StudentService;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -24,7 +24,7 @@ public class UpdateStudentAccountTest {
     @Test
     public void testUpdateStudent() {
         // Simulando a entrada do usuário
-        String input = "ana\n0\nNovoNome\nNovoUsuario\nNovaSenha123.";
+        String input = "Ana\n0\nNovoNome2\nNovoUsuario2\nNovaSenha123.2";
         InputStream inputStream = new ByteArrayInputStream(input.getBytes());
         System.setIn(inputStream);
 

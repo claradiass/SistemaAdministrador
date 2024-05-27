@@ -26,7 +26,7 @@ public class CreateStudentAccountTest {
     public void testCreateStudentAccount() {
 
         
-        String input = "Ana Clara\nana\npassword.@222ANA\n"; // Simulando a entrada do usuário que seria nome, usuário e senha.
+        String input = "Ana\nAna\npassword.@222ANA\n"; // Simulando a entrada do usuário que seria nome, usuário e senha.
         // Quando você está trabalhando com entrada de dados em Java, como texto digitado pelo usuário, 
         // você geralmente interage com um objeto chamado InputStream. Este objeto representa uma sequência 
         // de dados que podem ser lidos, como caracteres de texto.
@@ -78,11 +78,10 @@ public class CreateStudentAccountTest {
         assertTrue(outContent.toString().contains("Sua conta foi criada com sucesso!"));
         // Aqui, você está verificando se a saída capturada pelo outContent contém a mensagem de sucesso esperada. Se a mensagem estiver presente na saída, 
         //o teste será considerado bem-sucedido; caso contrário, será considerado falha.
-           
     }
 
     @Test
-    public void testCreateStudentAccountError() {
+    public void testWrongPassword() {
         String input = "John Doe\njohndoe\npassword.ANA\n";
         InputStream inputStream = new ByteArrayInputStream(input.getBytes());
         System.setIn(inputStream);
@@ -114,7 +113,7 @@ public class CreateStudentAccountTest {
     }
 
     @Test
-    public void testCreateStudentAccountNull() {
+    public void testUserNameNull() {
         
         String input = "John Doe\n\npassword.ANA22\n";
         InputStream inputStream = new ByteArrayInputStream(input.getBytes());
@@ -139,7 +138,7 @@ public class CreateStudentAccountTest {
     }
 
     @Test
-    public void testCreateStudentAccountNull2() {
+    public void testNameNull() {
         
         String input = "\n\nJohn Doe\npassword.ANA22\n";
         InputStream inputStream = new ByteArrayInputStream(input.getBytes());
@@ -159,5 +158,51 @@ public class CreateStudentAccountTest {
 
         assertFalse(outContent.toString().contains("Sua conta foi criada com sucesso!"));
         assertEquals("The name cannot be null", exception.getMessage());
+    }
+
+    @Test
+    public void testPasswordNull() {
+        
+        String input = "Ana Clara\nana\n\n";
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inputStream);
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        PrintStream originalOut = System.out;
+        System.setOut(new PrintStream(outContent));
+
+        CreateStudentAccount command = new CreateStudentAccount();
+        
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            command.execute();
+        });
+
+        System.setOut(originalOut);
+
+        assertFalse(outContent.toString().contains("Sua conta foi criada com sucesso!"));
+        assertEquals("A password must have at least 8 characters, including at least one lowercase letter, one uppercase letter, and one number.", exception.getMessage());
+    }
+
+    @Test
+    public void testUserNameExists() {
+        
+        String input = "Ana Clara\nNovoUsuario\nAna.9090linda\n";
+        InputStream inputStream = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inputStream);
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        PrintStream originalOut = System.out;
+        System.setOut(new PrintStream(outContent));
+
+        CreateStudentAccount command = new CreateStudentAccount();
+        
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            command.execute();
+        });
+
+        System.setOut(originalOut);
+
+        assertFalse(outContent.toString().contains("Sua conta foi criada com sucesso!"));
+        assertEquals("The username cannot be existing", exception.getMessage());
     }
 }
